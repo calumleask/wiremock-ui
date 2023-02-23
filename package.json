@@ -19,7 +19,7 @@
     "redux-observable": "^2.0.0",
     "rxjs": "^7.8.0",
     "styled-components": "^5.3.6",
-    "typesafe-actions": "^2.2.0",
+    "typesafe-actions": "^5.1.0",
     "yup": "^1.0.0"
   },
   "devDependencies": {
