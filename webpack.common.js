@@ -32,6 +32,7 @@ module.exports = {
     modules: ['node_modules'],
     alias: {
       '~': SRC_DIR,
+      edikit: SRC_DIR + '/edikit',
     },
   },
 };

@@ -1,4 +1,4 @@
-import { Epic, combineEpics } from 'redux-observable';
+import { Epic, combineEpics, ofType } from 'redux-observable';
 import { of } from 'rxjs';
 import { mergeMap } from 'rxjs/operators';
 import { removeContentFromAllPanesAction } from 'edikit';
@@ -11,12 +11,11 @@ export const createServerEpic: Epic<
   any,
   IApplicationState
 > = action$ =>
-  action$
-    .ofType(ServersActionTypes.CREATE_SERVER)
-    .pipe(
-      mergeMap((_action: ICreateServerAction) =>
-        of(removeContentFromAllPanesAction('default', 'server.create')),
-      ),
-    );
+  action$.pipe(
+    ofType(ServersActionTypes.CREATE_SERVER),
+    mergeMap((_action: ICreateServerAction) =>
+      of(removeContentFromAllPanesAction('default', 'server.create')),
+    ),
+  );
 
 export const serversEpic = combineEpics(createServerEpic);

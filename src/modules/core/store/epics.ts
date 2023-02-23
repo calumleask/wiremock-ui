@@ -1,4 +1,4 @@
-import { Epic, combineEpics } from 'redux-observable';
+import { Epic, combineEpics, ofType } from 'redux-observable';
 import { from } from 'rxjs';
 import { mergeMap } from 'rxjs/operators';
 import { initSettings } from '../../settings';
@@ -8,7 +8,8 @@ import { loadState, loadStateFinished } from './actions';
 import { CoreActionTypes } from './types';
 
 export const loadStateEpic: Epic<IAction, any> = action$ =>
-  action$.ofType(CoreActionTypes.LOAD_STATE).pipe(
+  action$.pipe(
+    ofType(CoreActionTypes.LOAD_STATE),
     mergeMap((_action: typeof loadState) => {
       const theme = localStorage.getItem('theme') || 'solarized dark';
       const actions: IAction[] = [

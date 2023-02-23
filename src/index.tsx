@@ -1,13 +1,11 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import './globalStyles';
 import './editorConfig';
 import Root from './Root';
-import configureStore from './configureStore';
 
-const store = configureStore();
-
-ReactDOM.render(
-  <Root store={store} />,
-  document.getElementById('root') as HTMLElement,
-);
+const container = document.getElementById('root');
+if (container) {
+  const root = createRoot(container);
+  root.render(<Root />);
+}

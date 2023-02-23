@@ -1,4 +1,4 @@
-import { Epic, combineEpics } from 'redux-observable';
+import { Epic, combineEpics, ofType } from 'redux-observable';
 import { of, EMPTY } from 'rxjs';
 import { mergeMap, delay } from 'rxjs/operators';
 import {
@@ -13,7 +13,8 @@ export const triggerNotificationEpic: Epic<
   any,
   any
 > = action$ =>
-  action$.ofType(NotificationsActionTypes.TRIGGER_NOTIFICATION).pipe(
+  action$.pipe(
+    ofType(NotificationsActionTypes.TRIGGER_NOTIFICATION),
     mergeMap(({ payload: { notification } }: ITriggerNotificationAction) => {
       if (notification.ttl === undefined) return EMPTY;
 
