@@ -1,7 +1,7 @@
-import * as React from 'react'
-import { action } from 'typesafe-actions'
-import { ServersActionTypes } from './types'
-import { IServer } from '../types'
+import * as React from 'react';
+import { action } from 'typesafe-actions';
+import { ServersActionTypes } from './types';
+import { IServer } from '../types';
 
 export interface IInitServersAction {
     type: ServersActionTypes.INIT_SERVERS
@@ -11,7 +11,7 @@ export interface IInitServersAction {
 }
 
 export const initServers = (servers: IServer[]) =>
-    action(ServersActionTypes.INIT_SERVERS, { servers })
+    action(ServersActionTypes.INIT_SERVERS, { servers });
 
 export interface ICreateServerAction {
     type: ServersActionTypes.CREATE_SERVER
@@ -34,7 +34,7 @@ export const createServer = (server: Pick<IServer, 'name' | 'url' | 'port'>) => 
             ttl: 3000,
         },
     }
-)
+);
 
 export interface ISelectServerAction {
     type: ServersActionTypes.SELECT_SERVER
@@ -44,7 +44,7 @@ export interface ISelectServerAction {
 }
 
 export const selectServer = (serverId: string) =>
-    action(ServersActionTypes.SELECT_SERVER, { serverId })
+    action(ServersActionTypes.SELECT_SERVER, { serverId });
 
 export interface IUpdateServerAction {
     type: ServersActionTypes.UPDATE_SERVER
@@ -54,7 +54,7 @@ export interface IUpdateServerAction {
 }
 
 export const updateServer = (server: IServer) =>
-    action(ServersActionTypes.UPDATE_SERVER, { server })
+    action(ServersActionTypes.UPDATE_SERVER, { server });
 
 export interface IRemoveServerAction {
     type: ServersActionTypes.REMOVE_SERVER
@@ -64,7 +64,7 @@ export interface IRemoveServerAction {
 }
 
 export const removeServer = (serverId: string) =>
-    action(ServersActionTypes.REMOVE_SERVER, { serverId })
+    action(ServersActionTypes.REMOVE_SERVER, { serverId });
 
 export type ServersAction =
     | IInitServersAction

@@ -1,5 +1,5 @@
-import * as React from 'react'
-import styled from 'styled-components'
+import * as React from 'react';
+import styled from 'styled-components';
 
 const Node = styled.input`
     width: 100%;
@@ -35,16 +35,14 @@ const Node = styled.input`
         border: ${props => props.theme.form.input.focus.border};
         ${props => props.theme.form.input.focus.css}
     }
-`
+`;
 
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-
-}
+type InputProps = React.InputHTMLAttributes<HTMLInputElement>
 
 export default class Input extends React.Component<InputProps> {
     render() {
         return (
             <Node {...this.props}/>
-        )
+        );
     }
 }

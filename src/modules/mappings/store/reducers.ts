@@ -1,8 +1,8 @@
-import { uniq, cloneDeep } from 'lodash'
-import { ServersAction, ServersActionTypes, IServer } from '../../servers'
-import { MappingsActionTypes } from './types'
-import { MappingsAction } from './actions'
-import { IMapping } from '../types'
+import { uniq, cloneDeep } from 'lodash';
+import { ServersAction, ServersActionTypes, IServer } from '../../servers';
+import { MappingsActionTypes } from './types';
+import { MappingsAction } from './actions';
+import { IMapping } from '../types';
 
 export interface IMappingState {
     mapping?: IMapping
@@ -43,46 +43,46 @@ export const mappingReducer = (
             return {
                 ...state,
                 isFetching: true,
-            }
+            };
 
         case MappingsActionTypes.FETCH_MAPPING_SUCCESS:
             return {
                 ...state,
                 isFetching: false,
                 mapping: action.payload.mapping,
-            }
+            };
 
         case  MappingsActionTypes.INIT_MAPPING_WORKING_COPY:
             return {
                 ...state,
                 workingCopy: cloneDeep(state.mapping),
-            }
+            };
 
         case MappingsActionTypes.SYNC_MAPPING_WORKING_COPY:
             return {
                 ...state,
                 workingCopy: { ...action.payload.update },
-            }
+            };
 
         case MappingsActionTypes.UPDATE_MAPPING_REQUEST:
             return {
                 ...state,
                 isUpdating: true,
-            }
+            };
 
         case MappingsActionTypes.UPDATE_MAPPING_SUCCESS:
             return {
                 ...state,
                 isUpdating: false,
                 mapping: action.payload.mapping,
-            }
+            };
 
 
         case MappingsActionTypes.DELETE_MAPPING_REQUEST:
             return {
                 ...state,
                 isDeleting: true,
-            }
+            };
 
         case MappingsActionTypes.CREATE_MAPPING_SUCCESS:
             return {
@@ -90,12 +90,12 @@ export const mappingReducer = (
                 isFetching: false,
                 isUpdating: false,
                 isDeleting: false,
-            }
+            };
 
         default:
-            return state
+            return state;
     }
-}
+};
 
 export const mappingCreationReducer = (
     state: IMappingCreationState,
@@ -103,31 +103,31 @@ export const mappingCreationReducer = (
 ): IMappingCreationState => {
     switch (action.type) {
         case MappingsActionTypes.INIT_CREATE_MAPPING:
-            if (state !== undefined) return state
+            if (state !== undefined) return state;
             return {
                 id: action.payload.creationId,
                 isCreating: false,
                 mapping: action.payload.mapping,
-            }
+            };
 
         case MappingsActionTypes.CREATE_MAPPING_REQUEST:
             return {
                 ...state,
                 isCreating: true,
                 mapping: action.payload.mapping,
-            }
+            };
 
         case MappingsActionTypes.CREATE_MAPPING_SUCCESS:
             return {
                 ...state,
                 isCreating: false,
                 mapping: action.payload.mapping,
-            }
+            };
 
         default:
-            return state
+            return state;
     }
-}
+};
 
 export const mappingsByServerReducer = (
     state: IServerMappingsState = {
@@ -145,10 +145,10 @@ export const mappingsByServerReducer = (
                 ...state,
                 isLoading: true,
                 haveBeenLoaded: false,
-            }
+            };
 
-        case MappingsActionTypes.LOAD_SERVER_MAPPINGS_SUCCESS:
-            const { mappings } = action.payload
+        case MappingsActionTypes.LOAD_SERVER_MAPPINGS_SUCCESS: {
+            const { mappings } = action.payload;
 
             return {
                 ...state,
@@ -164,7 +164,8 @@ export const mappingsByServerReducer = (
                         isDeleting: false,
                     }
                 }), {}),
-            }
+            };
+        }
 
         case MappingsActionTypes.FETCH_MAPPING_REQUEST:
         case MappingsActionTypes.FETCH_MAPPING_SUCCESS:
@@ -182,7 +183,7 @@ export const mappingsByServerReducer = (
                         action
                     )
                 }
-            }
+            };
 
         case MappingsActionTypes.DELETE_MAPPING_SUCCESS:
             return {
@@ -192,14 +193,14 @@ export const mappingsByServerReducer = (
                     agg: { [mappingId: string]: IMappingState },
                     mappingId: string
                 ): { [mappingId: string]: IMappingState } => {
-                    if (mappingId === action.payload.mappingId) return agg
+                    if (mappingId === action.payload.mappingId) return agg;
 
                     return {
                         ...agg,
                         [mappingId]: state.byId[mappingId]
-                    }
+                    };
                 }, {})
-            }
+            };
 
         case MappingsActionTypes.INIT_CREATE_MAPPING:
         case MappingsActionTypes.CREATE_MAPPING_REQUEST:
@@ -213,7 +214,7 @@ export const mappingsByServerReducer = (
                         action
                     )
                 }
-            }
+            };
 
         case MappingsActionTypes.CREATE_MAPPING_SUCCESS:
             return {
@@ -230,19 +231,19 @@ export const mappingsByServerReducer = (
                     agg: { [creationId: string]: IMappingCreationState },
                     creationId: string
                 ): { [creationId: string]: IMappingCreationState } => {
-                    if (creationId === action.payload.creationId) return agg
+                    if (creationId === action.payload.creationId) return agg;
 
                     return {
                         ...agg,
                         [creationId]: state.creations[creationId]
-                    }
+                    };
                 }, {})
-            }
+            };
 
         default:
-            return state
+            return state;
     }
-}
+};
 
 export const mappingsReducer = (
     state: IMappingsState = {},
@@ -259,7 +260,7 @@ export const mappingsReducer = (
                     byId: {},
                     creations: {},
                 },
-            }), {})
+            }), {});
 
         case ServersActionTypes.CREATE_SERVER:
             return {
@@ -268,7 +269,7 @@ export const mappingsReducer = (
                     undefined,
                     action
                 )
-            }
+            };
 
         case MappingsActionTypes.LOAD_SERVER_MAPPINGS_REQUEST:
         case MappingsActionTypes.LOAD_SERVER_MAPPINGS_SUCCESS:
@@ -290,10 +291,10 @@ export const mappingsReducer = (
                     state[action.payload.serverName],
                     action
                 )
-            }
+            };
 
         default:
-            return state
+            return state;
     }
-}
+};
 

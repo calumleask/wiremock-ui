@@ -1,7 +1,7 @@
-import * as React from 'react'
-import { withTheme } from 'styled-components'
-import { ChevronRight, ChevronDown } from 'react-feather'
-import { BuilderLabel, ITheme } from 'edikit'
+import * as React from 'react';
+import { withTheme } from 'styled-components';
+import { ChevronRight, ChevronDown } from 'react-feather';
+import { BuilderLabel, ITheme } from 'edikit';
 
 interface IBuilderSectionLabelProps {
     label: string
@@ -12,7 +12,7 @@ interface IBuilderSectionLabelProps {
 
 class BuilderSectionLabel extends React.Component<IBuilderSectionLabelProps> {
     render() {
-        const { label, isOpened, onToggle, theme } = this.props
+        const { label, isOpened, onToggle, theme } = this.props;
 
         const style: any = {
             width: '110px',
@@ -24,10 +24,10 @@ class BuilderSectionLabel extends React.Component<IBuilderSectionLabelProps> {
             background: isOpened ?
                 theme.builder.label.background :
                 theme.colors.muted
-        }
+        };
 
         if (!isOpened) {
-            style.boxShadow = 'none'
+            style.boxShadow = 'none';
         }
 
         return (
@@ -57,8 +57,8 @@ class BuilderSectionLabel extends React.Component<IBuilderSectionLabelProps> {
                 onClick={onToggle}
                 withLink={true}
             />
-        )
+        );
     }
 }
 
-export default withTheme(BuilderSectionLabel)
+export default withTheme(BuilderSectionLabel);

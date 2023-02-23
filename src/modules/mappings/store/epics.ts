@@ -1,16 +1,16 @@
-import { Epic, combineEpics } from 'redux-observable'
-import { of, EMPTY, from } from 'rxjs'
-import { mergeMap, map, flatMap } from 'rxjs/operators'
-import { omit } from 'lodash'
-import { removeContentFromAllPanesAction, addContentToCurrentPaneAction } from 'edikit'
+import { Epic, combineEpics } from 'redux-observable';
+import { of, EMPTY, from } from 'rxjs';
+import { mergeMap, map, flatMap } from 'rxjs/operators';
+import { omit } from 'lodash';
+import { removeContentFromAllPanesAction, addContentToCurrentPaneAction } from 'edikit';
 import {
     getMappings,
     getMapping,
     createMapping,
     updateMapping,
     deleteMapping,
-} from '../../../api'
-import { IApplicationState } from '../../../store'
+} from '../../../api';
+import { IApplicationState } from '../../../store';
 import {
     loadServerMappingsRequest,
     loadServerMappingsSuccess,
@@ -25,27 +25,27 @@ import {
     IUpdateMappingRequestAction,
     IDeleteMappingRequestAction,
     ICreateMappingRequestAction,
-} from './actions'
-import { IMapping } from '../types'
-import { MappingsActionTypes } from './types'
+} from './actions';
+import { IMapping } from '../types';
+import { MappingsActionTypes } from './types';
 
 export const shouldLoadServerMappingsEpic: Epic<MappingsAction, any, IApplicationState> = (action$, state$) =>
     action$.ofType(MappingsActionTypes.LOAD_SERVER_MAPPINGS)
         .pipe(
             mergeMap(({ payload }: ILoadServerMappingsAction) => {
-                const serversMappings = state$.value.mappings
-                const entry = serversMappings[payload.server.name]
+                const serversMappings = state$.value.mappings;
+                const entry = serversMappings[payload.server.name];
                 if (entry !== undefined) {
                     if (entry.isLoading || entry.haveBeenLoaded) {
-                        return EMPTY
+                        return EMPTY;
                     }
                 }
 
-                return of(loadServerMappingsRequest(payload.server))
+                return of(loadServerMappingsRequest(payload.server));
             })
-        )
+        );
 
-export const loadServerMappingsEpic: Epic<MappingsAction, any, IApplicationState> = (action$, state$) =>
+export const loadServerMappingsEpic: Epic<MappingsAction, any, IApplicationState> = (action$, _state$) =>
     action$.ofType(MappingsActionTypes.LOAD_SERVER_MAPPINGS_REQUEST)
         .pipe(
             mergeMap(({ payload }: ILoadServerMappingsRequestAction) =>
@@ -56,7 +56,7 @@ export const loadServerMappingsEpic: Epic<MappingsAction, any, IApplicationState
                     ))
                 )
             )
-        )
+        );
 
 export const fetchMappingsEpic: Epic<MappingsAction, any, IApplicationState> = (action$, state$) =>
     action$.ofType(MappingsActionTypes.FETCH_MAPPING_REQUEST)
@@ -64,8 +64,8 @@ export const fetchMappingsEpic: Epic<MappingsAction, any, IApplicationState> = (
             mergeMap(({ payload }: IFetchMappingRequestAction) => {
                 const server = state$.value.servers.servers.find(
                     s => s.name === payload.serverName
-                )
-                if (server === undefined) return EMPTY
+                );
+                if (server === undefined) return EMPTY;
 
                 return getMapping(server, payload.mappingId).pipe(
                     map((mapping: IMapping) => fetchMappingSuccess(
@@ -73,9 +73,9 @@ export const fetchMappingsEpic: Epic<MappingsAction, any, IApplicationState> = (
                         payload.mappingId,
                         mapping
                     ))
-                )
+                );
             })
-        )
+        );
 
 export const createMappingEpic: Epic<MappingsAction, any, IApplicationState> = (action$, state$) =>
     action$.ofType(MappingsActionTypes.CREATE_MAPPING_REQUEST)
@@ -83,8 +83,8 @@ export const createMappingEpic: Epic<MappingsAction, any, IApplicationState> = (
             flatMap(({ payload }: ICreateMappingRequestAction) => {
                 const server = state$.value.servers.servers.find(
                     s => s.name === payload.serverName
-                )
-                if (server === undefined) return EMPTY
+                );
+                if (server === undefined) return EMPTY;
 
                 return createMapping(server, omit(payload.mapping, ['id', 'uuid'])).pipe(
                     mergeMap(({ response: mapping }) => from([
@@ -112,9 +112,9 @@ export const createMappingEpic: Epic<MappingsAction, any, IApplicationState> = (
                             }
                         ),
                     ]))
-                )
+                );
             })
-        )
+        );
 
 export const updateMappingEpic: Epic<MappingsAction, any, IApplicationState> = (action$, state$) =>
     action$.ofType(MappingsActionTypes.UPDATE_MAPPING_REQUEST)
@@ -122,8 +122,8 @@ export const updateMappingEpic: Epic<MappingsAction, any, IApplicationState> = (
             flatMap(({ payload }: IUpdateMappingRequestAction) => {
                 const server = state$.value.servers.servers.find(
                     s => s.name === payload.serverName
-                )
-                if (server === undefined) return EMPTY
+                );
+                if (server === undefined) return EMPTY;
 
                 return updateMapping(server, payload.mapping).pipe(
                     map(({ response: mapping }) => updateMappingSuccess(
@@ -131,9 +131,9 @@ export const updateMappingEpic: Epic<MappingsAction, any, IApplicationState> = (
                         payload.mappingId,
                         mapping
                     ))
-                )
+                );
             })
-        )
+        );
 
 export const deleteMappingEpic: Epic<MappingsAction, any, IApplicationState> = (action$, state$) =>
     action$.ofType(MappingsActionTypes.DELETE_MAPPING_REQUEST)
@@ -141,8 +141,8 @@ export const deleteMappingEpic: Epic<MappingsAction, any, IApplicationState> = (
             mergeMap(({ payload }: IDeleteMappingRequestAction) => {
                 const server = state$.value.servers.servers.find(
                     s => s.name === payload.serverName
-                )
-                if (server === undefined) return EMPTY
+                );
+                if (server === undefined) return EMPTY;
 
                 return deleteMapping(server, payload.mappingId).pipe(
                     mergeMap(() => from([
@@ -155,9 +155,9 @@ export const deleteMappingEpic: Epic<MappingsAction, any, IApplicationState> = (
                             payload.mappingId
                         ),
                     ]))
-                )
+                );
             })
-        )
+        );
 
 export const mappingsEpic = combineEpics(
     shouldLoadServerMappingsEpic,
@@ -166,4 +166,4 @@ export const mappingsEpic = combineEpics(
     createMappingEpic,
     updateMappingEpic,
     deleteMappingEpic
-)
+);

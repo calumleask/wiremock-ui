@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Container = styled.header`
     position: absolute;
@@ -12,15 +12,15 @@ export const Container = styled.header`
     justify-content: space-between;
     background: ${props => props.theme.pane.header.background};
     overflow: hidden;
-`
+`;
 
 export const Buttons = styled.div`
     display: flex;
     overflow: hidden;
-`
+`;
 
 export const SplitButtons = styled.div`
     flex-shrink: 0;
     display: flex;
     width: calc(${props => props.theme.pane.header.height} * 2);
-`
+`;

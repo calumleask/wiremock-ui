@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Container = styled.div`
     width: 100%;
@@ -9,7 +9,7 @@ export const Container = styled.div`
     font-family: ${props => props.theme.typography.default.fontFamily};
     font-size: ${props => props.theme.typography.fontSize};
     line-height: ${props => props.theme.typography.lineHeight};
-`
+`;
 
 export const Inner = styled.div`
     position: absolute;
@@ -17,4 +17,4 @@ export const Inner = styled.div`
     top: ${props => props.theme.header.height};
     right: 0;
     bottom: 0;
-`
+`;

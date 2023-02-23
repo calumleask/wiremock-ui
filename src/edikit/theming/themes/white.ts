@@ -1,17 +1,17 @@
-import 'brace/theme/github'
-import { css } from 'styled-components'
-import { ITheme, IThemeColors, IThemeTypography } from '../types'
+import 'brace/theme/github';
+import { css } from 'styled-components';
+import { ITheme, IThemeColors, IThemeTypography } from '../types';
 
 const typography: IThemeTypography = {
     fontSize: '14px',
     lineHeight: '1.6em',
     default: {
-        fontFamily: `-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'`,
+        fontFamily: '-apple-system, BlinkMacSystemFont, \'Segoe UI\', Helvetica, Arial, sans-serif, \'Apple Color Emoji\', \'Segoe UI Emoji\', \'Segoe UI Symbol\'',
     },
     mono: {
-        fontFamily: `'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace`,
+        fontFamily: '\'SFMono-Regular\', Consolas, \'Liberation Mono\', Menlo, Courier, monospace',
     },
-}
+};
 
 const colors: IThemeColors = {
     background: '#f8f8f8',
@@ -26,7 +26,7 @@ const colors: IThemeColors = {
     overWarning: '#7b3204',
     danger: '#e21702',
     overDanger: '#fff',
-}
+};
 
 const theme: ITheme = {
     typography,
@@ -171,6 +171,6 @@ const theme: ITheme = {
             `,
         },
     },
-}
+};
 
-export default theme
+export default theme;

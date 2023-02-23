@@ -1,17 +1,17 @@
-import 'brace/theme/chaos'
-import { ITheme, IThemeColors, IThemeTypography } from '../types'
-import {css} from "styled-components";
+import 'brace/theme/chaos';
+import { ITheme, IThemeColors, IThemeTypography } from '../types';
+import {css} from 'styled-components';
 
 const typography: IThemeTypography = {
     fontSize: '14px',
     lineHeight: '1.6em',
     default: {
-        fontFamily: `-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'`,
+        fontFamily: '-apple-system, BlinkMacSystemFont, \'Segoe UI\', Helvetica, Arial, sans-serif, \'Apple Color Emoji\', \'Segoe UI Emoji\', \'Segoe UI Symbol\'',
     },
     mono: {
-        fontFamily: `'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace`,
+        fontFamily: '\'SFMono-Regular\', Consolas, \'Liberation Mono\', Menlo, Courier, monospace',
     },
-}
+};
 
 const colors: IThemeColors = {
     background: '#111',
@@ -26,7 +26,7 @@ const colors: IThemeColors = {
     overWarning: '#000',
     danger: '#b32c00',
     overDanger: '#000',
-}
+};
 
 const theme: ITheme = {
     typography,
@@ -160,6 +160,6 @@ const theme: ITheme = {
             color: '#fff',
         },
     },
-}
+};
 
-export default theme
+export default theme;

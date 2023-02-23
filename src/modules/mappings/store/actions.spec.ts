@@ -1,6 +1,6 @@
-import { IServer } from '../../servers'
-import { IMapping } from '../types'
-import { MappingsActionTypes } from './types'
+import { IServer } from '../../servers';
+import { IMapping } from '../types';
+import { MappingsActionTypes } from './types';
 import {
     loadServerMappings,
     loadServerMappingsRequest,
@@ -13,7 +13,7 @@ import {
     updateMappingSuccess,
     deleteMappingRequest,
     deleteMappingSuccess,
-} from './actions'
+} from './actions';
 
 const testServer: IServer = {
     name: 'test_server',
@@ -22,7 +22,7 @@ const testServer: IServer = {
     mappingsHaveBeenLoaded: false,
     isLoadingMappings: false,
     mappings: []
-}
+};
 
 const testMapping: IMapping = {
     id: 'test_mapping_id',
@@ -33,7 +33,7 @@ const testMapping: IMapping = {
     response: {
         status: 200,
     }
-}
+};
 
 describe('loadServerMappings', () => {
     it('should return corresponding action', () => {
@@ -43,9 +43,9 @@ describe('loadServerMappings', () => {
                 serverName: testServer.name,
                 server: testServer,
             }
-        })
-    })
-})
+        });
+    });
+});
 
 describe('loadServerMappingsRequest', () => {
     it('should return corresponding action', () => {
@@ -55,9 +55,9 @@ describe('loadServerMappingsRequest', () => {
                 serverName: testServer.name,
                 server: testServer,
             }
-        })
-    })
-})
+        });
+    });
+});
 
 describe('loadServerMappingsSuccess', () => {
     it('should return corresponding action', () => {
@@ -68,9 +68,9 @@ describe('loadServerMappingsSuccess', () => {
                 server: testServer,
                 mappings: [],
             }
-        })
-    })
-})
+        });
+    });
+});
 
 describe('fetchMappingRequest', () => {
     it('should return corresponding action', () => {
@@ -80,9 +80,9 @@ describe('fetchMappingRequest', () => {
                 serverName: testServer.name,
                 mappingId: testMapping.id,
             }
-        })
-    })
-})
+        });
+    });
+});
 
 describe('fetchMappingSuccess', () => {
     it('should return corresponding action', () => {
@@ -93,9 +93,9 @@ describe('fetchMappingSuccess', () => {
                 mappingId: testMapping.id,
                 mapping: testMapping,
             }
-        })
-    })
-})
+        });
+    });
+});
 
 describe('initMappingWorkingCopy', () => {
     it('should return corresponding action', () => {
@@ -105,9 +105,9 @@ describe('initMappingWorkingCopy', () => {
                 serverName: testServer.name,
                 mappingId: testMapping.id,
             }
-        })
-    })
-})
+        });
+    });
+});
 
 describe('syncMappingWorkingCopy', () => {
     it('should return corresponding action', () => {
@@ -118,9 +118,9 @@ describe('syncMappingWorkingCopy', () => {
                 mappingId: testMapping.id,
                 update: testMapping,
             }
-        })
-    })
-})
+        });
+    });
+});
 
 describe('updateMappingRequest', () => {
     it('should return corresponding action', () => {
@@ -131,9 +131,9 @@ describe('updateMappingRequest', () => {
                 mappingId: testMapping.id,
                 mapping: testMapping,
             }
-        })
-    })
-})
+        });
+    });
+});
 
 describe('updateMappingSuccess', () => {
     it('should return corresponding action', () => {
@@ -144,9 +144,9 @@ describe('updateMappingSuccess', () => {
                 mappingId: testMapping.id,
                 mapping: testMapping,
             }
-        })
-    })
-})
+        });
+    });
+});
 
 describe('deleteMappingRequest', () => {
     it('should return corresponding action', () => {
@@ -156,9 +156,9 @@ describe('deleteMappingRequest', () => {
                 serverName: testServer.name,
                 mappingId: testMapping.id,
             }
-        })
-    })
-})
+        });
+    });
+});
 
 describe('deleteMappingSuccess', () => {
     it('should return corresponding action', () => {
@@ -168,6 +168,6 @@ describe('deleteMappingSuccess', () => {
                 serverName: testServer.name,
                 mappingId: testMapping.id,
             }
-        })
-    })
-})
+        });
+    });
+});

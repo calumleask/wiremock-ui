@@ -9,33 +9,33 @@ import {
     IMappingResponseHeaderFormValue,
     mappingRequestParamMatchTypes,
     mappingRequestBodyPatternMatchTypes,
-} from './types'
+} from './types';
 
 export const mappingRequestParamsToFormValue = (params?: IMappingRequestParams): IMappingRequestParamFormValue[] => {
-    const formValue: IMappingRequestParamFormValue[] = []
+    const formValue: IMappingRequestParamFormValue[] = [];
 
     if (params !== undefined) {
         Object.keys(params).forEach(key => {
-            const val = params[key]
+            const val = params[key];
             mappingRequestParamMatchTypes.forEach(matchType => {
                 if (val[matchType] !== undefined) {
                     formValue.push({
                         key,
                         matchType,
                         value: matchType === 'absent' ? '' : val[matchType]!
-                    })
+                    });
                 }
-            })
-        })
+            });
+        });
     }
 
-    return formValue
-}
+    return formValue;
+};
 
 export const mappingRequestBodyPatternsToFormValue = (bodyPatterns?: IMappingRequestBodyPattern[]): IMappingRequestBodyPatternFormValue[] => {
-    const bodyPatternsFormValue: IMappingRequestBodyPatternFormValue[] = []
+    const bodyPatternsFormValue: IMappingRequestBodyPatternFormValue[] = [];
     if (bodyPatterns === undefined || bodyPatterns.length === 0) {
-        return bodyPatternsFormValue
+        return bodyPatternsFormValue;
     }
 
     bodyPatterns.forEach(bodyPattern => {
@@ -44,39 +44,39 @@ export const mappingRequestBodyPatternsToFormValue = (bodyPatterns?: IMappingReq
                 bodyPatternsFormValue.push({
                     matchType,
                     value: matchType === 'absent' ? '' : bodyPattern[matchType]!
-                })
+                });
             }
-        })
-    })
+        });
+    });
 
-    return bodyPatternsFormValue
-}
+    return bodyPatternsFormValue;
+};
 
 export const mappingToFormValues = (mapping: IMapping): IMappingFormValues => {
-    let url = ''
-    let urlMatchType: MappingRequestUrlMatchType = 'anyUrl'
+    let url = '';
+    let urlMatchType: MappingRequestUrlMatchType = 'anyUrl';
     if (mapping.request.url !== undefined) {
-        url = mapping.request.url
-        urlMatchType = 'url'
+        url = mapping.request.url;
+        urlMatchType = 'url';
     } else if (mapping.request.urlPattern !== undefined) {
-        url = mapping.request.urlPattern
-        urlMatchType = 'urlPattern'
+        url = mapping.request.urlPattern;
+        urlMatchType = 'urlPattern';
     } else if (mapping.request.urlPath !== undefined) {
-        url = mapping.request.urlPath
-        urlMatchType = 'urlPath'
+        url = mapping.request.urlPath;
+        urlMatchType = 'urlPath';
     } else if (mapping.request.urlPathPattern !== undefined) {
-        url = mapping.request.urlPathPattern
-        urlMatchType = 'urlPathPattern'
+        url = mapping.request.urlPathPattern;
+        urlMatchType = 'urlPathPattern';
     }
 
-    const responseHeaders: IMappingResponseHeaderFormValue[] = []
+    const responseHeaders: IMappingResponseHeaderFormValue[] = [];
     if (mapping.response.headers !== undefined) {
         Object.keys(mapping.response.headers).forEach(key => {
             responseHeaders.push({
                 key,
                 value: mapping.response.headers![key]
-            })
-        })
+            });
+        });
     }
 
     return {
@@ -98,8 +98,8 @@ export const mappingToFormValues = (mapping: IMapping): IMappingFormValues => {
         responseBodyFileName: mapping.response.bodyFileName,
         responseDelayMilliseconds: mapping.response.fixedDelayMilliseconds,
         responseDelayDistribution: mapping.response.delayDistribution,
-    }
-}
+    };
+};
 
 export const mappingRequestParamsFormValueToRequestParams = (params: IMappingRequestParamFormValue[]): IMappingRequestParams => {
     return params.reduce((agg: IMappingRequestParams, param: IMappingRequestParamFormValue): IMappingRequestParams => {
@@ -108,22 +108,22 @@ export const mappingRequestParamsFormValueToRequestParams = (params: IMappingReq
             [param.key]: {
                 [param.matchType]: param.value,
             },
-        }
-    }, {})
-}
+        };
+    }, {});
+};
 
 export const mappingRequestBodyPatternsFormValueToBodyPatterns = (bodyPatterns: IMappingRequestBodyPatternFormValue[]): IMappingRequestBodyPattern[] => {
     return bodyPatterns.map((bodyPattern: IMappingRequestBodyPatternFormValue): IMappingRequestBodyPattern => ({
         [bodyPattern.matchType]: bodyPattern.value,
-    }))
-}
+    }));
+};
 
 export const mappingFormValuesToMapping = (formValues: IMappingFormValues): IMapping => {
-    let url: { [matchType: string]: string } = {}
+    let url: { [matchType: string]: string } = {};
     if (formValues.urlMatchType !== 'anyUrl') {
         url = {
             [formValues.urlMatchType]: formValues.url
-        }
+        };
     }
 
     const mapping: IMapping = {
@@ -159,27 +159,27 @@ export const mappingFormValuesToMapping = (formValues: IMappingFormValues): IMap
             fixedDelayMilliseconds: formValues.responseDelayMilliseconds,
             delayDistribution: formValues.responseDelayDistribution,
         }
-    }
+    };
 
-    return mapping
-}
+    return mapping;
+};
 
 export const getMappingUrl = (mapping: IMapping): string => {
-    let url = '*'
+    let url = '*';
     if (mapping.request.url !== undefined) {
-        url = mapping.request.url
+        url = mapping.request.url;
     } else if (mapping.request.urlPattern !== undefined) {
-        url = mapping.request.urlPattern
+        url = mapping.request.urlPattern;
     } else if (mapping.request.urlPath !== undefined) {
-        url = mapping.request.urlPath
+        url = mapping.request.urlPath;
     } else if (mapping.request.urlPathPattern !== undefined) {
-        url = mapping.request.urlPathPattern
+        url = mapping.request.urlPathPattern;
     }
 
-    return url
-}
+    return url;
+};
 
 export const getMappingLabel = (mapping: IMapping): string => {
-    if (mapping.name !== undefined) return mapping.name
-    return `${mapping.request.method} ${getMappingUrl(mapping)}`
-}
+    if (mapping.name !== undefined) return mapping.name;
+    return `${mapping.request.method} ${getMappingUrl(mapping)}`;
+};

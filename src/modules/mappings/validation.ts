@@ -1,4 +1,4 @@
-import * as Yup from 'yup'
+import * as Yup from 'yup';
 
 export const mappingValidationSchema = Yup.object().shape({
     method: Yup.string()
@@ -31,4 +31,4 @@ export const mappingValidationSchema = Yup.object().shape({
         value: Yup.string()
             .required('Header value is required'),
     }))
-})
+});

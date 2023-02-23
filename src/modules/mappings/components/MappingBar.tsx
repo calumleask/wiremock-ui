@@ -1,6 +1,6 @@
-import * as React from 'react'
-import { Button } from 'edikit'
-import styled from 'styled-components'
+import * as React from 'react';
+import { Button } from 'edikit';
+import styled from 'styled-components';
 import {
     Save as SaveIcon,
     Code as JsonModeIcon,
@@ -9,7 +9,7 @@ import {
     // AlertOctagon as HasErrorIcon,
     // X as CancelIcon,
     // Copy as CloneIcon,
-} from 'react-feather'
+} from 'react-feather';
 
 const Container = styled.div`
     padding: 12px 16px;
@@ -17,12 +17,12 @@ const Container = styled.div`
     justify-content: space-between;
     align-items: center;
     background: ${props => props.theme.builder.block.background};
-`
+`;
 
 const ButtonsWrapper = styled.div`
     display: flex;
     align-items: center;
-`
+`;
 
 const actionButtonStyle = {
     fontSize: '11px',
@@ -33,7 +33,7 @@ const actionButtonStyle = {
     padding: 0,
     justifyContent: 'center',
     marginLeft: '6px',
-}
+};
 
 interface IMappingBarProps {
     mode: 'builder' | 'json'
@@ -51,7 +51,7 @@ export default class MappingBar extends React.Component<IMappingBarProps> {
             setJsonMode,
             save,
             deleteMapping,
-        } = this.props
+        } = this.props;
 
         return (
             <Container>
@@ -113,6 +113,6 @@ export default class MappingBar extends React.Component<IMappingBarProps> {
                     */}
                 </ButtonsWrapper>
             </Container>
-        )
+        );
     }
 }

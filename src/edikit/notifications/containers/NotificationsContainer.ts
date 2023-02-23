@@ -1,7 +1,7 @@
-import { connect } from 'react-redux'
-import Notifications from '../components/Notifications'
-import { INotification } from '../types'
-import { INotificationsState } from '../store'
+import { connect } from 'react-redux';
+import Notifications from '../components/Notifications';
+import { INotification } from '../types';
+import { INotificationsState } from '../store';
 
 interface IPropsFromState {
     notifications: INotification[]
@@ -12,9 +12,9 @@ const mapStateToProps = (
         notifications: INotificationsState
     } & any
 ): IPropsFromState => {
-    return { notifications }
-}
+    return { notifications };
+};
 
 export default connect(
     mapStateToProps
-)(Notifications)
+)(Notifications);

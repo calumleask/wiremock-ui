@@ -1,5 +1,5 @@
-import * as React from 'react'
-import { Container, Icon, Part, Line } from './SplitPaneIcon_styled'
+import * as React from 'react';
+import { Container, Icon, Part, Line } from './SplitPaneIcon_styled';
 
 export interface ISplitPaneIconProps {
     axis: 'horizontal' | 'vertical'
@@ -16,6 +16,6 @@ export default class SplitPaneIcon extends React.Component<ISplitPaneIconProps> 
                     <Part side="right" />
                 </Icon>
             </Container>
-        )
+        );
     }
 }

@@ -1,7 +1,7 @@
-import { action, createAction } from 'typesafe-actions'
-import uuid from '../../util/uuid'
-import { INotification } from '../types'
-import { NotificationsActionTypes } from './types'
+import { action, createAction } from 'typesafe-actions';
+import uuid from '../../util/uuid';
+import { INotification } from '../types';
+import { NotificationsActionTypes } from './types';
 
 export interface ITriggerNotification extends Pick<INotification, 'content' | 'ttl'> {
     id?: string
@@ -26,7 +26,7 @@ export const triggerNotification = createAction(
             ...notification,
         },
     })
-)
+);
 
 export interface ICloseNotificationAction {
     type: NotificationsActionTypes.CLOSE_NOTIFICATION
@@ -42,7 +42,7 @@ export const closeNotification = (
     {
         notificationId,
     }
-)
+);
 
 export type NotificationsAction =
     | ITriggerNotificationAction

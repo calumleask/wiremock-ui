@@ -1,9 +1,9 @@
-import * as React from 'react'
-import { action } from 'typesafe-actions'
-import { IServer } from '../../servers'
-import { IMapping } from '../types'
-import { getMappingLabel } from '../dto'
-import { MappingsActionTypes } from './types'
+import * as React from 'react';
+import { action } from 'typesafe-actions';
+import { IServer } from '../../servers';
+import { IMapping } from '../types';
+import { getMappingLabel } from '../dto';
+import { MappingsActionTypes } from './types';
 
 export interface ILoadServerMappingsAction {
     type: MappingsActionTypes.LOAD_SERVER_MAPPINGS
@@ -19,7 +19,7 @@ export const loadServerMappings = (server: IServer): ILoadServerMappingsAction =
         serverName: server.name,
         server,
     }
-)
+);
 
 export interface ILoadServerMappingsRequestAction {
     type: MappingsActionTypes.LOAD_SERVER_MAPPINGS_REQUEST
@@ -35,7 +35,7 @@ export const loadServerMappingsRequest = (server: IServer): ILoadServerMappingsR
         serverName: server.name,
         server,
     }
-)
+);
 
 export interface ILoadServerMappingsSuccessAction {
     type: MappingsActionTypes.LOAD_SERVER_MAPPINGS_SUCCESS
@@ -56,7 +56,7 @@ export const loadServerMappingsSuccess = (
         server,
         mappings,
     }
-)
+);
 
 export interface IFetchMappingRequestAction {
     type: MappingsActionTypes.FETCH_MAPPING_REQUEST
@@ -75,7 +75,7 @@ export const fetchMappingRequest = (
         serverName,
         mappingId,
     }
-)
+);
 
 export interface IFetchMappingSuccessAction {
     type: MappingsActionTypes.FETCH_MAPPING_SUCCESS
@@ -97,7 +97,7 @@ export const fetchMappingSuccess = (
         mappingId,
         mapping,
     }
-)
+);
 
 export interface IInitMappingWorkingCopyAction {
     type: MappingsActionTypes.INIT_MAPPING_WORKING_COPY
@@ -116,7 +116,7 @@ export const initMappingWorkingCopy = (
         serverName,
         mappingId,
     }
-)
+);
 
 export interface ISyncMappingWorkingCopyAction {
     type: MappingsActionTypes.SYNC_MAPPING_WORKING_COPY
@@ -138,7 +138,7 @@ export const syncMappingWorkingCopy = (
         mappingId,
         update,
     }
-)
+);
 
 export interface IUpdateMappingRequestAction {
     type: MappingsActionTypes.UPDATE_MAPPING_REQUEST
@@ -160,7 +160,7 @@ export const updateMappingRequest = (
         mappingId,
         mapping,
     }
-)
+);
 
 export interface IUpdateMappingSuccessAction {
     type: MappingsActionTypes.UPDATE_MAPPING_SUCCESS
@@ -193,7 +193,7 @@ export const updateMappingSuccess = (
             ttl: 2000,
         },
     }
-)
+);
 
 export interface IDeleteMappingRequestAction {
     type: MappingsActionTypes.DELETE_MAPPING_REQUEST
@@ -212,7 +212,7 @@ export const deleteMappingRequest = (
         serverName,
         mappingId,
     }
-)
+);
 
 export interface IDeleteMappingSuccessAction {
     type: MappingsActionTypes.DELETE_MAPPING_SUCCESS
@@ -242,7 +242,7 @@ export const deleteMappingSuccess = (
             ttl: 2000,
         },
     }
-)
+);
 
 export interface IInitCreateMappingAction {
     type: MappingsActionTypes.INIT_CREATE_MAPPING
@@ -265,14 +265,14 @@ export const initCreateMapping = (
             id: creationId,
             uuid: creationId,
             request: {
-                method: 'GET' as 'GET',
+                method: 'GET' as const,
             },
             response: {
                 status: 200,
             },
         }
     }
-)
+);
 
 export interface ICreateMappingRequestAction {
     type: MappingsActionTypes.CREATE_MAPPING_REQUEST
@@ -294,7 +294,7 @@ export const createMappingRequest = (
         creationId,
         mapping,
     }
-)
+);
 
 export interface ICreateMappingSuccessAction {
     type: MappingsActionTypes.CREATE_MAPPING_SUCCESS
@@ -330,7 +330,7 @@ export const createMappingSuccess = (
             ttl: 2000,
         },
     }
-)
+);
 
 export interface ICancelMappingCreationAction {
     type: MappingsActionTypes.CANCEL_CREATE_MAPPING
@@ -349,7 +349,7 @@ export const cancelMappingCreation = (
         serverName,
         creationId,
     }
-)
+);
 
 export type MappingsAction =
     | ILoadServerMappingsAction

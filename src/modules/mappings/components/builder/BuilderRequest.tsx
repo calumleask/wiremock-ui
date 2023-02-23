@@ -1,13 +1,13 @@
-import * as React from 'react'
-import { FormikErrors, FormikTouched } from 'formik'
-import { Block } from 'edikit'
-import { IMappingFormValues } from '../../types'
-import BuilderSectionLabel from './BuilderSectionLabel'
-import RequestUrl from './RequestUrl'
-import RequestUrlDetails from './RequestUrlDetails'
-import RequestParamsSwitcher from './RequestParamsSwitcher'
-import RequestParams from './RequestParams'
-import { Grid } from './Builder_styled'
+import * as React from 'react';
+import { FormikErrors, FormikTouched } from 'formik';
+import { Block } from 'edikit';
+import { IMappingFormValues } from '../../types';
+import BuilderSectionLabel from './BuilderSectionLabel';
+import RequestUrl from './RequestUrl';
+import RequestUrlDetails from './RequestUrlDetails';
+import RequestParamsSwitcher from './RequestParamsSwitcher';
+import RequestParams from './RequestParams';
+import { Grid } from './Builder_styled';
 
 interface IBuilderRequestProps {
     isOpened: boolean
@@ -33,7 +33,7 @@ export default class BuilderRequest extends React.Component<IBuilderRequestProps
             onBlur,
             paramsType,
             updateParamsType,
-        } = this.props
+        } = this.props;
 
         return (
             <React.Fragment>
@@ -101,6 +101,6 @@ export default class BuilderRequest extends React.Component<IBuilderRequestProps
                     </Block>
                 )}
             </React.Fragment>
-        )
+        );
     }
 }

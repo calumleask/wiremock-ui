@@ -1,7 +1,7 @@
-import * as React from 'react'
-import { FormikErrors, FormikTouched } from 'formik'
-import { Select } from 'edikit'
-import { IMappingFormValues } from '../../types'
+import * as React from 'react';
+import { FormikErrors, FormikTouched } from 'formik';
+import { Select } from 'edikit';
+import { IMappingFormValues } from '../../types';
 
 interface IRequestUrlDetailsProps {
     values: IMappingFormValues
@@ -13,7 +13,7 @@ interface IRequestUrlDetailsProps {
 
 export default class RequestUrlDetails extends React.Component<IRequestUrlDetailsProps> {
     render() {
-        const { values, onChange, onBlur } = this.props
+        const { values, onChange, onBlur } = this.props;
 
         return (
             <React.Fragment>
@@ -64,6 +64,6 @@ export default class RequestUrlDetails extends React.Component<IRequestUrlDetail
                     <option value="anyUrl">Any URL</option>
                 </Select>
             </React.Fragment>
-        )
+        );
     }
 }

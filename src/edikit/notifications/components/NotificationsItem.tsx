@@ -1,11 +1,11 @@
-import * as React from 'react'
-import styled from 'styled-components'
-import { IThemeColors } from '../../theming/types'
-import { INotification, NotificationType } from '../types'
+import * as React from 'react';
+import styled from 'styled-components';
+import { IThemeColors } from '../../theming/types';
+import { INotification, NotificationType } from '../types';
 
 const colorByNotificationType = (colors: IThemeColors, type: NotificationType): string => {
-    return colors[type] || colors.accent
-}
+    return colors[type] || colors.accent;
+};
 
 interface IItemProps {
     type: NotificationType
@@ -30,7 +30,7 @@ const Item = styled.div<IItemProps>`
         bottom: 0;
         background: ${props => colorByNotificationType(props.theme.colors, props.type)};
     }
-`
+`;
 
 interface INotificationsItemProps {
     notification: INotification
@@ -38,12 +38,12 @@ interface INotificationsItemProps {
 
 export default class NotificationsItem extends React.Component<INotificationsItemProps> {
     render() {
-        const { notification } = this.props
+        const { notification } = this.props;
 
         return (
             <Item type={notification.type}>
                 {notification.content}
             </Item>
-        )
+        );
     }
 }

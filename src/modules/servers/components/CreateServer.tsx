@@ -1,11 +1,11 @@
-import * as React from 'react'
-import styled from 'styled-components'
-import { Formik, FormikProps } from 'formik'
-import { ArrowRight, Slash } from 'react-feather'
-import * as Yup from 'yup'
-import { Button, Input } from 'edikit'
-import { Container, Title } from './CreateServer_styled'
-import { IServer } from '../types'
+import * as React from 'react';
+import styled from 'styled-components';
+import { Formik, FormikProps } from 'formik';
+import { ArrowRight, Slash } from 'react-feather';
+import * as Yup from 'yup';
+import { Button, Input } from 'edikit';
+import { Container, Title } from './CreateServer_styled';
+import { IServer } from '../types';
 
 interface IFormValues {
     name: string
@@ -20,14 +20,14 @@ export interface ICreateServerProps {
 
 const Form = styled.div`
     max-width: 500px;
-`
+`;
 
 const Label = styled.label`
     font-size: 12px;
     margin-bottom: 5px;
     display: block;
     color: ${props => props.theme.colors.accent};
-`
+`;
 
 const SubGrid = styled.div`
     display: grid;
@@ -35,11 +35,11 @@ const SubGrid = styled.div`
     grid-row-gap: 18px;
     grid-column-gap: 24px;
     align-items: top;
-`
+`;
 
 class CreateServer extends React.Component<ICreateServerProps> {
     render() {
-        const { createServer } = this.props
+        const { createServer } = this.props;
 
         return (
             <Container>
@@ -70,7 +70,7 @@ class CreateServer extends React.Component<ICreateServerProps> {
                             createServer({
                                 ...values,
                                 port: values.port !== '' ? Number(values.port) : undefined
-                            })
+                            });
                         }}
                         render={({
                              values,
@@ -156,8 +156,8 @@ class CreateServer extends React.Component<ICreateServerProps> {
                     />
                 </Form>
             </Container>
-        )
+        );
     }
 }
 
-export default CreateServer
+export default CreateServer;

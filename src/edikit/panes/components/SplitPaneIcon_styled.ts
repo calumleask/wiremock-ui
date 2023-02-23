@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export interface IPartProps {
     side: 'left' | 'right'
@@ -13,7 +13,7 @@ export const Part = styled.div<IPartProps>`
     border: 1px solid ${props => props.theme.colors.muted};
     border-left-width: ${props => (props.side === 'left' ? '1px' : '0')};
     border-right-width: ${props => (props.side === 'right' ? '1px' : '0')};
-`
+`;
 
 export const Line = styled.span`
     flex-shrink: 0;
@@ -21,7 +21,7 @@ export const Line = styled.span`
     height: 16px;
     margin: 0 1px;
     background: ${props => props.theme.colors.accent};
-`
+`;
 
 export interface IAxisProps {
     axis: 'horizontal' | 'vertical'
@@ -33,7 +33,7 @@ export const Icon = styled.div<IAxisProps>`
     display: flex;
     overflow: hidden;
     transform: ${props => (props.axis === 'horizontal' ? 'rotate(90deg)' : 'none')};
-`
+`;
 
 export const Container = styled.div`
     flex-shrink: 0;
@@ -47,4 +47,4 @@ export const Container = styled.div`
     &:hover ${Part} {
         background: ${props => props.theme.colors.muted};
     }
-`
+`;

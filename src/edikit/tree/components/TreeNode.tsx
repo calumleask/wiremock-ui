@@ -1,10 +1,10 @@
-import * as React from 'react'
-import { withTheme } from 'styled-components'
-import { Folder, ChevronRight, ChevronDown } from 'react-feather'
-import { Icons, Item, CurrentIndicator } from './TreeNode_styled'
-import { ITreeNode as Node, TreeClickHandler, TreeIconGetter } from '../'
+import * as React from 'react';
+import { withTheme } from 'styled-components';
+import { Folder, ChevronRight, ChevronDown } from 'react-feather';
+import { Icons, Item, CurrentIndicator } from './TreeNode_styled';
+import { ITreeNode as Node, TreeClickHandler, TreeIconGetter } from '../';
 
-const iconSize = 12
+const iconSize = 12;
 
 export interface ITreeNodeProps<NodeData> {
     node: Node
@@ -18,12 +18,12 @@ export interface ITreeNodeProps<NodeData> {
 class TreeNode<NodeData> extends React.Component<ITreeNodeProps<NodeData>> {
     static defaultProps = {
         depth: 0,
-    }
+    };
 
     handleClick = () => {
-        const { onClick, node } = this.props
-        onClick(node)
-    }
+        const { onClick, node } = this.props;
+        onClick(node);
+    };
 
     render() {
         const {
@@ -33,11 +33,11 @@ class TreeNode<NodeData> extends React.Component<ITreeNodeProps<NodeData>> {
             onClick,
             getIcon,
             theme,
-        } = this.props
+        } = this.props;
 
-        let icon = node.icon
+        let icon = node.icon;
         if (icon === undefined && getIcon !== undefined) {
-            icon = getIcon(node)
+            icon = getIcon(node);
         }
         if (icon === undefined && node.children !== undefined) {
             icon = (
@@ -46,11 +46,11 @@ class TreeNode<NodeData> extends React.Component<ITreeNodeProps<NodeData>> {
                     size={iconSize}
                     style={{ flexShrink: 0 }}
                 />
-            )
+            );
         }
 
-        const isOpened = openedIds.includes(node.id)
-        const iconCount = node.children !== undefined ? 2 : 1
+        const isOpened = openedIds.includes(node.id);
+        const iconCount = node.children !== undefined ? 2 : 1;
 
         return (
             <React.Fragment>
@@ -89,10 +89,10 @@ class TreeNode<NodeData> extends React.Component<ITreeNodeProps<NodeData>> {
                     </React.Fragment>
                 )}
             </React.Fragment>
-        )
+        );
     }
 }
 
-const ThemedTreeNode = withTheme(TreeNode)
+const ThemedTreeNode = withTheme(TreeNode);
 
-export default ThemedTreeNode
+export default ThemedTreeNode;

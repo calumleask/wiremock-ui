@@ -1,6 +1,6 @@
-import * as React from 'react'
-import { Button } from 'edikit'
-import { IMappingFormValues } from '../../types'
+import * as React from 'react';
+import { Button } from 'edikit';
+import { IMappingFormValues } from '../../types';
 
 interface IRequestParamsSwitcherProps {
     paramsType: 'query' | 'headers' | 'cookies' | 'body'
@@ -14,13 +14,13 @@ export default class RequestParamsSwitcher extends React.Component<IRequestParam
             paramsType,
             values,
             onChange,
-        } = this.props
+        } = this.props;
 
         return (
             <React.Fragment>
                 <Button
                     variant={paramsType === 'query' ? 'primary' : 'default'}
-                    onClick={() => { onChange('query') }}
+                    onClick={() => { onChange('query'); }}
                     style={{
                         gridColumnStart: 1,
                         gridColumnEnd: 3,
@@ -32,7 +32,7 @@ export default class RequestParamsSwitcher extends React.Component<IRequestParam
                 </Button>
                 <Button
                     variant={paramsType === 'headers' ? 'primary' : 'default'}
-                    onClick={() => { onChange('headers') }}
+                    onClick={() => { onChange('headers'); }}
                     style={{
                         gridColumnStart: 3,
                         gridColumnEnd: 5,
@@ -44,7 +44,7 @@ export default class RequestParamsSwitcher extends React.Component<IRequestParam
                 </Button>
                 <Button
                     variant={paramsType === 'cookies' ? 'primary' : 'default'}
-                    onClick={() => { onChange('cookies') }}
+                    onClick={() => { onChange('cookies'); }}
                     style={{
                         gridColumnStart: 5,
                         gridColumnEnd: 7,
@@ -56,7 +56,7 @@ export default class RequestParamsSwitcher extends React.Component<IRequestParam
                 </Button>
                 <Button
                     variant={paramsType === 'body' ? 'primary' : 'default'}
-                    onClick={() => { onChange('body') }}
+                    onClick={() => { onChange('body'); }}
                     style={{
                         gridColumnStart: 7,
                         gridColumnEnd: 9,
@@ -67,6 +67,6 @@ export default class RequestParamsSwitcher extends React.Component<IRequestParam
                     {values.requestBodyPatterns.length > 0 ? ` [${values.requestBodyPatterns.length}]` : ''}
                 </Button>
             </React.Fragment>
-        )
+        );
     }
 }

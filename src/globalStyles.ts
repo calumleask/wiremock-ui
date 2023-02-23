@@ -1,4 +1,4 @@
-import { injectGlobal } from 'styled-components'
+import { injectGlobal } from 'styled-components';
 
 export default injectGlobal`
 body {
@@ -72,4 +72,4 @@ html, body, #root {
 .Resizer.disabled:hover {
     border-color: transparent;
 }
-`
+`;

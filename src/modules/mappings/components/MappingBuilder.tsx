@@ -1,14 +1,14 @@
-import * as React from 'react'
-import { InjectedFormikProps, withFormik } from 'formik'
-import { Builder, Block, Input } from 'edikit'
-import { IMapping, IMappingFormValues } from '../types'
-import { mappingValidationSchema } from '../validation'
-import { mappingToFormValues, mappingFormValuesToMapping } from '../dto'
-import { Container, Content } from './Mapping_styled'
-import MappingBar from './MappingBar'
-import { Grid } from './builder/Builder_styled'
-import BuilderRequest from './builder/BuilderRequest'
-import BuilderResponse from './builder/BuilderResponse'
+import * as React from 'react';
+import { InjectedFormikProps, withFormik } from 'formik';
+import { Builder, Block, Input } from 'edikit';
+import { IMapping, IMappingFormValues } from '../types';
+import { mappingValidationSchema } from '../validation';
+import { mappingToFormValues, mappingFormValuesToMapping } from '../dto';
+import { Container, Content } from './Mapping_styled';
+import MappingBar from './MappingBar';
+import { Grid } from './builder/Builder_styled';
+import BuilderRequest from './builder/BuilderRequest';
+import BuilderResponse from './builder/BuilderResponse';
 
 interface IMappingBuilderProps {
     mapping: IMapping
@@ -31,56 +31,56 @@ const enhance = withFormik<IMappingBuilderProps, IMappingFormValues>({
     enableReinitialize: true,
     isInitialValid: true,
     mapPropsToValues: props => {
-        return mappingToFormValues(props.mapping)
+        return mappingToFormValues(props.mapping);
     },
     validationSchema: mappingValidationSchema,
     handleSubmit: (values, { props }) => {
-        props.save(mappingFormValuesToMapping(values))
+        props.save(mappingFormValuesToMapping(values));
     }
-})
+});
 
 class MappingBuilder extends React.Component<
     InjectedFormikProps<IMappingBuilderProps, IMappingFormValues>,
     IMappingBuilderState
 > {
     constructor(props: any) {
-        super(props)
+        super(props);
 
         this.state = {
             isRequestOpened: true,
             isResponseOpened: true,
             requestParamsType: 'query',
-        }
+        };
     }
 
     sync = () => {
-        const { sync, values } = this.props
+        const { sync, values } = this.props;
         if (sync !== undefined) {
-            sync(mappingFormValuesToMapping(values))
+            sync(mappingFormValuesToMapping(values));
         }
-    }
+    };
 
     handleBlur = (e: React.SyntheticEvent) => {
-        const { handleBlur, sync } = this.props
-        handleBlur(e)
-        if (sync !== undefined) this.sync()
-    }
+        const { handleBlur, sync } = this.props;
+        handleBlur(e);
+        if (sync !== undefined) this.sync();
+    };
 
     toggleRequest = () => {
         this.setState({
             isRequestOpened: !this.state.isRequestOpened
-        })
-    }
+        });
+    };
 
     toggleResponse = () => {
         this.setState({
             isResponseOpened: !this.state.isResponseOpened
-        })
-    }
+        });
+    };
 
     updateRequestParamsType = (requestParamsType: 'query' | 'headers' | 'cookies' | 'body') => {
-        this.setState({ requestParamsType })
-    }
+        this.setState({ requestParamsType });
+    };
 
     render() {
         const {
@@ -94,12 +94,12 @@ class MappingBuilder extends React.Component<
             setBuilderMode,
             setJsonMode,
             submitForm,
-        } = this.props
+        } = this.props;
         const {
             isRequestOpened,
             isResponseOpened,
             requestParamsType,
-        } = this.state
+        } = this.state;
 
         return (
             <Container>
@@ -153,8 +153,8 @@ class MappingBuilder extends React.Component<
                     </Builder>
                 </Content>
             </Container>
-        )
+        );
     }
 }
 
-export default enhance(MappingBuilder)
+export default enhance(MappingBuilder);

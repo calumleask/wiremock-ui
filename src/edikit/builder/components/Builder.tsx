@@ -1,6 +1,6 @@
-import * as React from 'react'
-import styled, { withTheme } from 'styled-components'
-import { ITheme } from 'edikit'
+import * as React from 'react';
+import styled, { withTheme } from 'styled-components';
+import { ITheme } from 'edikit';
 
 const Container = styled.div`
     position: relative;
@@ -9,12 +9,12 @@ const Container = styled.div`
     overflow-x: hidden;
     overflow-y: auto;
     background: ${props => props.theme.builder.background};
-`
+`;
 
 const Header = styled.header`
     padding: 9px 16px;
     background: ${props => props.theme.builder.header.background};
-`
+`;
 
 const Title = styled.div`
     font-weight: 600;
@@ -23,17 +23,17 @@ const Title = styled.div`
     overflow: hidden;
     text-overflow: ellipsis;
     color: ${props => props.theme.builder.header.title.color};
-`
+`;
 
 const Subtitle = styled.div`
     font-size: 13px;
     color: ${props => props.theme.builder.header.subtitle.color};
-`
+`;
 
 const Content = styled.div`
     padding: 0 16px 18px;
     overflow: hidden;
-`
+`;
 
 interface IBuilderProps {
     title?: React.ReactNode
@@ -49,7 +49,7 @@ class Builder extends React.Component<IBuilderProps> {
             title,
             subtitle,
             children,
-        } = this.props
+        } = this.props;
 
         return (
             <Container>
@@ -61,8 +61,8 @@ class Builder extends React.Component<IBuilderProps> {
                 )}
                 {children && <Content>{children}</Content>}
             </Container>
-        )
+        );
     }
 }
 
-export default withTheme(Builder)
+export default withTheme(Builder);

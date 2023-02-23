@@ -1,6 +1,6 @@
-import { action } from 'typesafe-actions'
-import { PanesActionTypes } from './types'
-import { IPaneContent, PaneSplitAxis } from '../types'
+import { action } from 'typesafe-actions';
+import { PanesActionTypes } from './types';
+import { IPaneContent, PaneSplitAxis } from '../types';
 
 export interface IInitPanesNamespaceAction {
     type: PanesActionTypes.INIT_PANES_NAMESPACE
@@ -16,7 +16,7 @@ export const initPanesNamespaceAction = (
     {
         namespace,
     }
-)
+);
 
 export interface ISetCurrentPaneAction {
     type: PanesActionTypes.SET_CURRENT_PANE
@@ -35,7 +35,7 @@ export const setCurrentPaneAction = (
         namespace,
         paneId,
     }
-)
+);
 
 export interface IAddContentToCurrentPaneAction<Data> {
     type: PanesActionTypes.ADD_CONTENT_TO_CURRENT_PANE
@@ -54,7 +54,7 @@ export const addContentToCurrentPaneAction = <Data>(
         namespace,
         content,
     }
-)
+);
 
 export interface ISetPaneCurrentContentAction {
     type: PanesActionTypes.SET_PANE_CURRENT_CONTENT
@@ -76,7 +76,7 @@ export const setPaneCurrentContentAction = (
         paneId,
         contentId,
     }
-)
+);
 
 export interface IRemovePaneContentAction {
     type: PanesActionTypes.REMOVE_PANE_CONTENT
@@ -98,7 +98,7 @@ export const removePaneContentAction = (
         paneId,
         contentId,
     }
-)
+);
 
 export interface IRemoveContentFromAllPanesAction {
     type: PanesActionTypes.REMOVE_CONTENT_FROM_ALL_PANES
@@ -117,7 +117,7 @@ export const removeContentFromAllPanesAction = (
         namespace,
         contentId,
     }
-)
+);
 
 export interface ISplitPaneAction {
     type: PanesActionTypes.SPLIT_PANE
@@ -139,7 +139,7 @@ export const splitPaneAction = (
         paneId,
         axis,
     }
-)
+);
 
 export type PanesAction<Data> =
     | IInitPanesNamespaceAction
@@ -224,4 +224,4 @@ export const actionsFactory = <Data>(namespace: string): IPanesActions<Data> => 
         paneId,
         axis
     ),
-})
+});

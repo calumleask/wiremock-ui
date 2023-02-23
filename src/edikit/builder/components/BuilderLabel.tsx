@@ -1,5 +1,5 @@
-import * as React from 'react'
-import styled from 'styled-components'
+import * as React from 'react';
+import styled from 'styled-components';
 
 const Label = styled.div`
     position: absolute;
@@ -19,7 +19,7 @@ const Label = styled.div`
     background: ${props => props.theme.builder.label.background};
     color: ${props => props.theme.builder.label.color};
     ${props => props.theme.builder.label.css}
-`
+`;
 
 interface IContainerProps {
     withLink: boolean
@@ -42,7 +42,7 @@ const Container = styled.div<IContainerProps>`
     }
     
     ${props => {
-        if (props.withLink === false) return ''
+        if (props.withLink === false) return '';
         return `
             &:before {
                 z-index: 0;
@@ -54,9 +54,9 @@ const Container = styled.div<IContainerProps>`
                 bottom: 0;
                 background: ${props.theme.builder.link.color};
             }
-        `
+        `;
     }}
-`
+`;
 
 interface IBuilderLabelProps {
     label?: React.ReactNode
@@ -70,13 +70,13 @@ export default class BuilderLabel extends React.Component<IBuilderLabelProps> {
     static defaultProps = {
         withLink: false,
         style: {}
-    }
+    };
 
     render() {
-        const { label, children, withLink, style, onClick } = this.props
+        const { label, children, withLink, style, onClick } = this.props;
 
         if (label === undefined && children === undefined) {
-            return null
+            return null;
         }
 
         return (
@@ -85,6 +85,6 @@ export default class BuilderLabel extends React.Component<IBuilderLabelProps> {
                     {label || children}
                 </Label>
             </Container>
-        )
+        );
     }
 }

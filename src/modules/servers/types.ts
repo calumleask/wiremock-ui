@@ -1,4 +1,4 @@
-import { IMapping } from '../mappings'
+import { IMapping } from '../mappings';
 
 export interface IServer {
     name: string

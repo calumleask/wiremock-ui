@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Container = styled.aside`
     overflow: auto;
@@ -6,4 +6,4 @@ export const Container = styled.aside`
     height: 100%;
     background: ${props => props.theme.tree.container.background};
     ${props => props.theme.tree.container.extend};
-`
+`;

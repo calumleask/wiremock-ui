@@ -33,7 +33,7 @@ export const mappingRequestMethods: MappingRequestMethod[] = [
     'PATCH',
     'HEAD',
     'ANY',
-]
+];
 
 export const mappingRequestParamMatchTypes: MappingRequestParamMatchType[] = [
     'equalTo',
@@ -41,7 +41,7 @@ export const mappingRequestParamMatchTypes: MappingRequestParamMatchType[] = [
     'contains',
     'doesNotMatch',
     'absent',
-]
+];
 
 export const mappingRequestBodyPatternMatchTypes: MappingRequestParamMatchType[] = [
     ...mappingRequestParamMatchTypes,
@@ -49,7 +49,7 @@ export const mappingRequestBodyPatternMatchTypes: MappingRequestParamMatchType[]
     'matchesXPath',
     'equalToJson',
     'matchesJsonPath',
-]
+];
 
 export interface IMappingRequestParams {
     [key: string]: {

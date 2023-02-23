@@ -1,5 +1,5 @@
-import * as React from 'react'
-import { Container } from './Button_styled'
+import * as React from 'react';
+import { Container } from './Button_styled';
 
 export type ButtonSize = 'normal' | 'large'
 
@@ -23,16 +23,16 @@ export default class Button extends React.Component<IButtonProps> {
         variant: 'default',
         size: 'normal',
         iconPlacement: 'prepend',
-    }
+    };
 
     render() {
-        const { label, children, variant, size, icon, iconPlacement, ...rest } = this.props
+        const { label, children, variant, size, icon, iconPlacement, ...rest } = this.props;
 
-        let content = null
+        let content = null;
         if (children) {
-            content = children
+            content = children;
         } else if (label) {
-            content = label
+            content = label;
         }
 
         return (
@@ -48,6 +48,6 @@ export default class Button extends React.Component<IButtonProps> {
                 {label || children}
                 {icon && iconPlacement === 'append' && icon}
             </Container>
-        )
+        );
     }
 }

@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Container = styled.div`
     height: ${props => props.theme.header.height};
@@ -8,13 +8,13 @@ export const Container = styled.div`
     align-items: center;
     background: ${props => props.theme.header.background};
     color: ${props => props.theme.header.color};
-`
+`;
 
 export const Icons = styled.div`
     display: flex;
     align-items: center;
     height: 100%;
-`
+`;
 
 export const AppName = styled.span`
     font-weight: 900;
@@ -22,4 +22,4 @@ export const AppName = styled.span`
     display: flex;
     align-items: center;
     color: ${props => props.theme.header.brandColor};
-`
+`;

@@ -1,5 +1,5 @@
-import { CoreActionTypes } from './types'
-import { CoreAction } from './actions'
+import { CoreActionTypes } from './types';
+import { CoreAction } from './actions';
 
 export interface ICoreState {
     hasBeenInitialized: boolean
@@ -7,7 +7,7 @@ export interface ICoreState {
 
 const initialState = {
     hasBeenInitialized: false,
-}
+};
 
 export const coreReducer = (
     state: ICoreState = initialState,
@@ -18,10 +18,10 @@ export const coreReducer = (
             return {
                 ...state,
                 hasBeenInitialized: true
-            }
+            };
 
         default:
-            return state
+            return state;
     }
-}
+};
 

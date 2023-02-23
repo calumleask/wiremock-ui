@@ -1,14 +1,14 @@
-import { Dispatch } from 'redux'
-import { connect } from 'react-redux'
-import { IApplicationState } from '../../../store'
-import { IServer } from '../../servers'
-import CreateMapping from '../components/CreateMapping'
-import { IMapping } from '../types'
+import { Dispatch } from 'redux';
+import { connect } from 'react-redux';
+import { IApplicationState } from '../../../store';
+import { IServer } from '../../servers';
+import CreateMapping from '../components/CreateMapping';
+import { IMapping } from '../types';
 import {
     initCreateMapping,
     createMappingRequest,
     cancelMappingCreation,
-} from '../store'
+} from '../store';
 
 interface IOwnProps {
     serverName: string
@@ -31,19 +31,19 @@ const mapStateToProps = (
         creationId,
     }: IOwnProps
 ): IPropsFromState => {
-    const server = servers.find(s => s.name === serverName)
+    const server = servers.find(s => s.name === serverName);
     if (server! === undefined) {
-        throw new Error(`no server found having name: '${serverName}'`)
+        throw new Error(`no server found having name: '${serverName}'`);
     }
 
-    let mapping: IMapping | undefined
-    let isCreating = false
-    const serverMappings = serversMappings[serverName]
+    let mapping: IMapping | undefined;
+    let isCreating = false;
+    const serverMappings = serversMappings[serverName];
     if (serverMappings !== undefined) {
-        const creation = serverMappings.creations[creationId]
+        const creation = serverMappings.creations[creationId];
         if (creation !== undefined) {
-            mapping = creation.mapping
-            isCreating = creation.isCreating
+            mapping = creation.mapping;
+            isCreating = creation.isCreating;
         }
     }
 
@@ -51,8 +51,8 @@ const mapStateToProps = (
         server,
         mapping,
         isCreating,
-    }
-}
+    };
+};
 
 
 const mapDispatchToProps = (dispatch: Dispatch, props: IOwnProps) => ({
@@ -60,24 +60,24 @@ const mapDispatchToProps = (dispatch: Dispatch, props: IOwnProps) => ({
         dispatch(initCreateMapping(
             props.serverName,
             props.creationId
-        ))
+        ));
     },
     save: (mapping: IMapping) => {
         dispatch(createMappingRequest(
             props.serverName,
             props.creationId,
             mapping
-        ))
+        ));
     },
     cancel: () => {
         dispatch(cancelMappingCreation(
             props.serverName,
             props.creationId
-        ))
+        ));
     },
-})
+});
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(CreateMapping)
+)(CreateMapping);

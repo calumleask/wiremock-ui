@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export interface IContainerProps {
     isCurrent: boolean
@@ -30,14 +30,14 @@ export const Container = styled.span<IContainerProps>`
         transform: ${props => props.isCurrent ? 'scale3d(1, 1, 1)' : 'scale3d(0, 1, 1)'};
         transition: transform 300ms ease-out, opacity 300ms ease-in;
     }    
-`
+`;
 
 export const Label = styled.span`
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     margin-left: 6px;
-`
+`;
 
 export const RemoveButton = styled.span`
     height: 100%;
@@ -48,4 +48,4 @@ export const RemoveButton = styled.span`
     &:hover {
         color: ${props => props.theme.colors.accent};
     }
-`
+`;

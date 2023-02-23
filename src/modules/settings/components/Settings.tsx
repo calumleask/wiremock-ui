@@ -1,7 +1,7 @@
-import * as React from 'react'
-import themes from '../../../themes'
-import { ISettings } from '../types'
-import { Container, Grid, Title, Item } from './Settings_styled'
+import * as React from 'react';
+import themes from '../../../themes';
+import { ISettings } from '../types';
+import { Container, Grid, Title, Item } from './Settings_styled';
 
 interface ISettingsProps {
     settings: ISettings
@@ -10,7 +10,7 @@ interface ISettingsProps {
 
 class Settings extends React.Component<ISettingsProps> {
     render() {
-        const { settings, setSetting } = this.props
+        const { settings, setSetting } = this.props;
 
         return (
             <Container>
@@ -21,7 +21,7 @@ class Settings extends React.Component<ISettingsProps> {
                             <Item
                                 key={t}
                                 onClick={() => {
-                                    setSetting('theme', t)
+                                    setSetting('theme', t);
                                 }}
                                 isActive={t === settings.theme}
                             >
@@ -31,8 +31,8 @@ class Settings extends React.Component<ISettingsProps> {
                     </div>
                 </Grid>
             </Container>
-        )
+        );
     }
 }
 
-export default Settings
+export default Settings;

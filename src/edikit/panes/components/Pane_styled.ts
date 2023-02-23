@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 interface IContainerProps {
     isCurrent: boolean
@@ -12,7 +12,7 @@ export const Container = styled.div<IContainerProps>`
     left: calc(${props => props.theme.pane.spacing} / 2);
     ${props => props.theme.pane.css}
     ${props => props.isCurrent ? props.theme.pane.current.css : ''}
-`
+`;
 
 export const Content = styled.div`
     position: absolute;
@@ -23,4 +23,4 @@ export const Content = styled.div`
     overflow-y: auto;
     overflow-x: hidden;
     z-index: 10;
-`
+`;

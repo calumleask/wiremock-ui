@@ -1,6 +1,6 @@
-import { Reducer } from 'redux'
-import { ServersActionTypes } from './types'
-import { IServer } from '../types'
+import { Reducer } from 'redux';
+import { ServersActionTypes } from './types';
+import { IServer } from '../types';
 
 export interface IServersState {
     readonly servers: IServer[]
@@ -8,7 +8,7 @@ export interface IServersState {
 
 const initialState: IServersState = {
     servers: [],
-}
+};
 
 const reducer: Reducer<IServersState> = (state = initialState, action) => {
     switch (action.type) {
@@ -21,7 +21,7 @@ const reducer: Reducer<IServersState> = (state = initialState, action) => {
                     isLoadingMappings: false,
                     mappings: []
                 }))
-            }
+            };
         }
 
         case ServersActionTypes.CREATE_SERVER: {
@@ -31,13 +31,13 @@ const reducer: Reducer<IServersState> = (state = initialState, action) => {
                     ...state.servers,
                     action.payload.server,
                 ]
-            }
+            };
         }
 
         default: {
-            return state
+            return state;
         }
     }
-}
+};
 
-export { reducer as serversReducer }
+export { reducer as serversReducer };

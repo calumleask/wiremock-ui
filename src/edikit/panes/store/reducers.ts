@@ -1,6 +1,6 @@
-import { IPane, PaneSplitAxis } from '../types'
-import { PanesActionTypes } from './types'
-import { PanesAction } from './actions'
+import { IPane, PaneSplitAxis } from '../types';
+import { PanesActionTypes } from './types';
+import { PanesAction } from './actions';
 import {
     setCurrentPane,
     addContentToCurrentPane,
@@ -8,7 +8,7 @@ import {
     removePaneContent,
     removeContentFromAllPanes,
     splitPane,
-} from '../operations'
+} from '../operations';
 
 export interface IPanesNamespaceState<Data> {
     panes: Array<IPane<Data>>
@@ -35,7 +35,7 @@ const byNamespace = <Data>(
                     contents: [],
                     children: [],
                 }],
-            }
+            };
 
         case PanesActionTypes.SET_CURRENT_PANE:
             return {
@@ -43,7 +43,7 @@ const byNamespace = <Data>(
                     state.panes,
                     action.payload.paneId
                 ),
-            }
+            };
 
         case PanesActionTypes.ADD_CONTENT_TO_CURRENT_PANE:
             return {
@@ -51,7 +51,7 @@ const byNamespace = <Data>(
                     state.panes,
                     action.payload.content
                 ),
-            }
+            };
 
         case PanesActionTypes.SET_PANE_CURRENT_CONTENT:
             return {
@@ -60,7 +60,7 @@ const byNamespace = <Data>(
                     action.payload.paneId,
                     action.payload.contentId
                 ),
-            }
+            };
 
         case PanesActionTypes.REMOVE_PANE_CONTENT:
             return {
@@ -69,7 +69,7 @@ const byNamespace = <Data>(
                     action.payload.paneId,
                     action.payload.contentId
                 ),
-            }
+            };
 
         case PanesActionTypes.REMOVE_CONTENT_FROM_ALL_PANES:
             return {
@@ -77,7 +77,7 @@ const byNamespace = <Data>(
                     state.panes,
                     action.payload.contentId
                 ),
-            }
+            };
 
         case PanesActionTypes.SPLIT_PANE:
             return {
@@ -86,12 +86,12 @@ const byNamespace = <Data>(
                     action.payload.paneId,
                     action.payload.axis
                 ),
-            }
+            };
 
         default:
-            return state
+            return state;
     }
-}
+};
 
 export const panesReducer = <Data>() => (
     state: IPanesState<Data> = {},
@@ -111,10 +111,10 @@ export const panesReducer = <Data>() => (
                     state[action.payload.namespace],
                     action
                 )
-            }
+            };
 
         default:
-            return state
+            return state;
     }
-}
+};
 

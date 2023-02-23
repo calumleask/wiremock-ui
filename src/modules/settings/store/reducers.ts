@@ -1,6 +1,6 @@
-import { ISettings } from '../types'
-import { SettingsActionTypes } from './types'
-import { SettingsAction } from './actions'
+import { ISettings } from '../types';
+import { SettingsActionTypes } from './types';
+import { SettingsAction } from './actions';
 
 export interface ISettingsState {
     settings: ISettings
@@ -10,7 +10,7 @@ const initialState = {
     settings: {
         theme: 'white'
     }
-}
+};
 
 export const settingsReducer = (
     state: ISettingsState = initialState,
@@ -21,7 +21,7 @@ export const settingsReducer = (
             return {
                 ...state,
                 settings: action.payload
-            }
+            };
 
         case SettingsActionTypes.SET_SETTING:
             return {
@@ -30,10 +30,10 @@ export const settingsReducer = (
                     ...state.settings,
                     [action.payload.key]: action.payload.value
                 }
-            }
+            };
 
         default:
-            return state
+            return state;
     }
-}
+};
 

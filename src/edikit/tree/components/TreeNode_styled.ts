@@ -1,8 +1,8 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-const iconSize = 12
-const iconSpacing = 9
-const iconsOffset = iconSize + iconSpacing
+const iconSize = 12;
+const iconSpacing = 9;
+const iconsOffset = iconSize + iconSpacing;
 
 interface IconsProps {
     iconCount: number
@@ -15,7 +15,7 @@ export const Icons = styled.div<IconsProps>`
     width: ${props => props.iconCount * iconSize + (props.iconCount - 1) * iconSpacing}px;
     margin-right: ${iconSpacing}px;
     flex-shrink: 0;
-`
+`;
 
 export interface ItemProps {
     isDir: boolean
@@ -32,10 +32,10 @@ export const Item = styled.div<ItemProps>`
     transition: background 300ms;
     padding-left: ${props => {
         if (props.isDir) {
-            return props.depth * iconsOffset + 7
+            return props.depth * iconsOffset + 7;
         }
 
-        return props.depth * iconsOffset + 7
+        return props.depth * iconsOffset + 7;
     }}px;
     cursor: pointer;
     white-space: nowrap;
@@ -52,7 +52,7 @@ export const Item = styled.div<ItemProps>`
         color: ${props => props.theme.tree.item.hover.color};
         ${props => props.theme.tree.item.hover.extend};
     }
-`
+`;
 
 export const CurrentIndicator = styled.span`
     width: 6px;
@@ -60,4 +60,4 @@ export const CurrentIndicator = styled.span`
     border-radius: 3px;
     margin-left: ${iconSpacing}px;
     background: ${props => props.theme.colors.accent};
-`
+`;

@@ -1,9 +1,9 @@
-import * as React from 'react'
-import { withTheme } from 'styled-components'
-import { Monitor, Settings, GitHub } from 'react-feather'
-import { ITheme, Button, IPaneContent } from 'edikit'
-import { IData } from '../../../types'
-import { Container, Icons, AppName } from './AppBar_styled'
+import * as React from 'react';
+import { withTheme } from 'styled-components';
+import { Monitor, Settings, GitHub } from 'react-feather';
+import { ITheme, Button, IPaneContent } from 'edikit';
+import { IData } from '../../../types';
+import { Container, Icons, AppName } from './AppBar_styled';
 
 export interface IAppBarProps {
     addContentToCurrentPane(content: IPaneContent<IData>): void
@@ -17,15 +17,15 @@ class AppBar extends React.Component<IAppBarProps> {
             type: 'settings',
             isCurrent: true,
             isUnique: true,
-        })
-    }
+        });
+    };
 
     visitGithub = () => {
-        window.open('https://github.com/plouc/wiremock-ui', '_blank')
-    }
+        window.open('https://github.com/plouc/wiremock-ui', '_blank');
+    };
 
     render() {
-        const { theme } = this.props
+        const { theme } = this.props;
 
         return (
             <Container>
@@ -65,8 +65,8 @@ class AppBar extends React.Component<IAppBarProps> {
                     </Button>
                 </Icons>
             </Container>
-        )
+        );
     }
 }
 
-export default withTheme(AppBar)
+export default withTheme(AppBar);

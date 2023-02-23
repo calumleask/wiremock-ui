@@ -1,6 +1,6 @@
-import * as React from 'react'
-import SettingsIcon from './components/SettingsIcon'
-import Settings from './containers/SettingsContainer'
+import * as React from 'react';
+import SettingsIcon from './components/SettingsIcon';
+import Settings from './containers/SettingsContainer';
 
 export const settingsContentTypes = [
     {
@@ -9,4 +9,4 @@ export const settingsContentTypes = [
         renderIcon: () => <SettingsIcon/>,
         renderPane: () => <Settings/>,
     }
-]
+];

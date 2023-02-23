@@ -1,10 +1,10 @@
-import * as React from 'react'
-import { Block } from 'edikit'
-import { FormikErrors, FormikTouched } from 'formik'
-import { IMappingFormValues } from '../../types'
-import BuilderSectionLabel from './BuilderSectionLabel'
-import ResponseBase from './ResponseBase'
-import { Grid } from './Builder_styled'
+import * as React from 'react';
+import { Block } from 'edikit';
+import { FormikErrors, FormikTouched } from 'formik';
+import { IMappingFormValues } from '../../types';
+import BuilderSectionLabel from './BuilderSectionLabel';
+import ResponseBase from './ResponseBase';
+import { Grid } from './Builder_styled';
 
 interface IBuilderResponseProps {
     isOpened: boolean
@@ -28,7 +28,7 @@ export default class BuilderResponse extends React.Component<IBuilderResponsePro
             onChange,
             onBlur,
             sync,
-        } = this.props
+        } = this.props;
 
         return (
             <React.Fragment>
@@ -52,6 +52,6 @@ export default class BuilderResponse extends React.Component<IBuilderResponsePro
                     </Block>
                 )}
             </React.Fragment>
-        )
+        );
     }
 }

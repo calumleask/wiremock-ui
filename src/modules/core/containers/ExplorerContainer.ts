@@ -1,11 +1,11 @@
-import { Dispatch } from 'redux'
-import { connect } from 'react-redux'
-import { panesCurrentContentsSelector, uuid } from 'edikit'
-import { ITreeNode } from '../components/Tree'
-import { IApplicationState } from '../../../store'
-import { loadServerMappings, getMappingUrl } from '../../mappings'
-import { IServer } from '../../servers'
-import Explorer from '../components/Explorer'
+import { Dispatch } from 'redux';
+import { connect } from 'react-redux';
+import { panesCurrentContentsSelector, uuid } from 'edikit';
+import { ITreeNode } from '../components/Tree';
+import { IApplicationState } from '../../../store';
+import { loadServerMappings, getMappingUrl } from '../../mappings';
+import { IServer } from '../../servers';
+import Explorer from '../components/Explorer';
 
 const mapStateToProps = (
     {
@@ -18,14 +18,14 @@ const mapStateToProps = (
     servers: IServer[]
 } => {
     const currentContentIds: string[] = panesCurrentContentsSelector(panes, 'default')
-        .map(({ id }) => id)
+        .map(({ id }) => id);
 
     const tree: ITreeNode = {
         id: 'root',
         type: 'root',
         label: 'servers',
         children: []
-    }
+    };
 
     servers.forEach(server => {
         const serverNode = {
@@ -33,11 +33,11 @@ const mapStateToProps = (
             label: server.name,
             type: 'server',
             children: [] as ITreeNode[],
-        }
+        };
 
-        const mappings = serversMappings[server.name]
+        const mappings = serversMappings[server.name];
         if (mappings !== undefined) {
-            const creationId = uuid()
+            const creationId = uuid();
             serverNode.children.push({
                 id: `${server.name}.mapping.create.${creationId}`,
                 type: 'mapping.create',
@@ -46,7 +46,7 @@ const mapStateToProps = (
                     serverName: server.name,
                     creationId,
                 },
-            })
+            });
 
             const mappingsNode: ITreeNode = {
                 id: `${server.name}.mappings`,
@@ -56,9 +56,9 @@ const mapStateToProps = (
                     serverName: server.name,
                 },
                 children: [],
-            }
+            };
             mappings.ids.forEach(mappingId => {
-                const mapping = mappings.byId[mappingId].mapping
+                const mapping = mappings.byId[mappingId].mapping;
                 if (mapping !== undefined) {
                     mappingsNode.children!.push({
                         id: mappingId,
@@ -69,31 +69,31 @@ const mapStateToProps = (
                             serverName: server.name,
                             mappingId,
                         },
-                    })
+                    });
                 }
-            })
-            serverNode.children.push(mappingsNode)
+            });
+            serverNode.children.push(mappingsNode);
         }
 
-        tree.children!.push(serverNode)
-    })
+        tree.children!.push(serverNode);
+    });
 
     tree.children!.push({
         id: 'server.create',
         type: 'server.create',
         label: 'create server',
-    })
+    });
 
-    return { tree, servers }
-}
+    return { tree, servers };
+};
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
     loadServerMappings: (server: IServer) => {
-        dispatch(loadServerMappings(server))
+        dispatch(loadServerMappings(server));
     },
-})
+});
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Explorer)
+)(Explorer);

@@ -1,6 +1,6 @@
-import * as React from 'react'
-import styled from 'styled-components'
-import { ChevronUp, ChevronDown } from 'react-feather'
+import * as React from 'react';
+import styled from 'styled-components';
+import { ChevronUp, ChevronDown } from 'react-feather';
 
 const Container = styled.div`
     height: 30px;
@@ -16,7 +16,7 @@ const Container = styled.div`
     &:focus-within {
         ${props => props.theme.form.select.focus.css};
     }
-`
+`;
 
 const Node = styled.select`
     flex: 1;
@@ -32,7 +32,7 @@ const Node = styled.select`
     &:focus {
         outline: transparent;
     }
-`
+`;
 
 const Addon = styled.div`
     width: 20px;
@@ -48,13 +48,13 @@ const Addon = styled.div`
     border-radius: 0 2px 2px 0;
     color: ${props => props.theme.form.select.arrowsColor || 'inherit'};
     background: ${props => props.theme.form.select.addonBackground || 'transparent'};
-`
+`;
 
-interface InputProps extends React.InputHTMLAttributes<HTMLSelectElement> {}
+type InputProps = React.InputHTMLAttributes<HTMLSelectElement>
 
 export default class Select extends React.Component<InputProps> {
     render() {
-        const { style, ...selectProps } = this.props
+        const { style, ...selectProps } = this.props;
 
         return (
             <Container style={style}>
@@ -64,6 +64,6 @@ export default class Select extends React.Component<InputProps> {
                     <ChevronDown size={10}/>
                 </Addon>
             </Container>
-        )
+        );
     }
 }

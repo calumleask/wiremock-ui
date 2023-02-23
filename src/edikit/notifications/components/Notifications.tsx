@@ -1,7 +1,7 @@
-import * as React from 'react'
-import styled from 'styled-components'
-import { INotification } from '../types'
-import NotificationsItem from './NotificationsItem'
+import * as React from 'react';
+import styled from 'styled-components';
+import { INotification } from '../types';
+import NotificationsItem from './NotificationsItem';
 
 const Wrapper = styled.div`
     position: absolute;
@@ -9,7 +9,7 @@ const Wrapper = styled.div`
     width: 360px;
     bottom: 32px;
     left: 32px;
-`
+`;
 
 interface INotificationsProps {
     notifications: INotification[]
@@ -17,7 +17,7 @@ interface INotificationsProps {
 
 export default class Notifications extends React.Component<INotificationsProps> {
     render() {
-        const { notifications } = this.props
+        const { notifications } = this.props;
 
         return (
             <Wrapper>
@@ -28,6 +28,6 @@ export default class Notifications extends React.Component<INotificationsProps> 
                     />
                 ))}
             </Wrapper>
-        )
+        );
     }
 }

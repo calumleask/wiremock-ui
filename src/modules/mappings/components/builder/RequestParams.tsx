@@ -1,8 +1,8 @@
-import * as React from 'react'
-import { Trash2 } from 'react-feather'
-import {FormikErrors, FormikTouched, FieldArray, getIn} from 'formik'
-import { Button, Input, Select } from 'edikit'
-import { IMappingFormValues, mappingRequestParamMatchTypes } from '../../types'
+import * as React from 'react';
+import { Trash2 } from 'react-feather';
+import {FormikErrors, FormikTouched, FieldArray, getIn} from 'formik';
+import { Button, Input, Select } from 'edikit';
+import { IMappingFormValues, mappingRequestParamMatchTypes } from '../../types';
 
 interface IRequestParamsProps {
     type: 'queryParameters' | 'requestHeaders' | 'requestCookies'
@@ -24,7 +24,7 @@ export default class RequestParams extends React.Component<IRequestParamsProps> 
             touched,
             onChange,
             onBlur,
-        } = this.props
+        } = this.props;
 
         return (
             <FieldArray
@@ -71,7 +71,7 @@ export default class RequestParams extends React.Component<IRequestParamsProps> 
                                 />
                                 <div>
                                     <Button
-                                        onClick={() => { arrayHelpers.remove(index) }}
+                                        onClick={() => { arrayHelpers.remove(index); }}
                                         variant="danger"
                                         icon={<Trash2 size={14}/>}
                                         style={{
@@ -98,7 +98,7 @@ export default class RequestParams extends React.Component<IRequestParamsProps> 
                                     key: '',
                                     matchType: 'equalTo',
                                     value: '',
-                                })
+                                });
                             }}
                             style={{
                                 gridColumnStart: 1,
@@ -111,6 +111,6 @@ export default class RequestParams extends React.Component<IRequestParamsProps> 
                     </React.Fragment>
                 )}
             />
-        )
+        );
     }
 }

@@ -1,8 +1,8 @@
-import * as React from 'react'
-import PaneHeaderButton from './PaneHeaderButton'
-import SplitPaneIcon from './SplitPaneIcon'
-import { Container, Buttons, SplitButtons } from './PaneHeader_styled'
-import { IPane, IContentType, PaneSplitAxis } from '../types'
+import * as React from 'react';
+import PaneHeaderButton from './PaneHeaderButton';
+import SplitPaneIcon from './SplitPaneIcon';
+import { Container, Buttons, SplitButtons } from './PaneHeader_styled';
+import { IPane, IContentType, PaneSplitAxis } from '../types';
 
 export interface IPaneHeaderProps<ContentData> {
     contentTypes: Array<IContentType<ContentData>>
@@ -14,14 +14,14 @@ export interface IPaneHeaderProps<ContentData> {
 
 export default class PaneHeader<ContentData> extends React.Component<IPaneHeaderProps<ContentData>> {
     splitHorizontally = (e: React.SyntheticEvent) => {
-        e.stopPropagation()
-        this.props.splitPane(PaneSplitAxis.Horizontal)
-    }
+        e.stopPropagation();
+        this.props.splitPane(PaneSplitAxis.Horizontal);
+    };
 
     splitVertically = (e: React.SyntheticEvent) => {
-        e.stopPropagation()
-        this.props.splitPane(PaneSplitAxis.Vertical)
-    }
+        e.stopPropagation();
+        this.props.splitPane(PaneSplitAxis.Vertical);
+    };
 
     render() {
         const {
@@ -29,7 +29,7 @@ export default class PaneHeader<ContentData> extends React.Component<IPaneHeader
             contentTypes,
             setCurrentContent,
             removeContent,
-        } = this.props
+        } = this.props;
 
         return (
             <Container>
@@ -52,6 +52,6 @@ export default class PaneHeader<ContentData> extends React.Component<IPaneHeader
                     </SplitButtons>
                 )}
             </Container>
-        )
+        );
     }
 }

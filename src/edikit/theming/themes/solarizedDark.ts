@@ -1,18 +1,18 @@
-import 'brace'
-import 'brace/theme/solarized_dark'
-import { css } from 'styled-components'
-import { IThemeTypography, IThemeColors, ITheme } from '../types'
+import 'brace';
+import 'brace/theme/solarized_dark';
+import { css } from 'styled-components';
+import { IThemeTypography, IThemeColors, ITheme } from '../types';
 
 const typography: IThemeTypography = {
     fontSize: '14px',
     lineHeight: '1.6em',
     default: {
-        fontFamily: `-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'`,
+        fontFamily: '-apple-system, BlinkMacSystemFont, \'Segoe UI\', Helvetica, Arial, sans-serif, \'Apple Color Emoji\', \'Segoe UI Emoji\', \'Segoe UI Symbol\'',
     },
     mono: {
-        fontFamily: `'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace`,
+        fontFamily: '\'SFMono-Regular\', Consolas, \'Liberation Mono\', Menlo, Courier, monospace',
     },
-}
+};
 
 const colors: IThemeColors = {
     background: '#001b21',
@@ -27,7 +27,7 @@ const colors: IThemeColors = {
     overWarning: '#00222b',
     danger: '#ff4c3f',
     overDanger: '#00222b',
-}
+};
 
 const theme: ITheme = {
     typography,
@@ -155,6 +155,6 @@ const theme: ITheme = {
             `
         },
     },
-}
+};
 
-export default theme
+export default theme;

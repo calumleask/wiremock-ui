@@ -1,7 +1,7 @@
-import * as React from 'react'
-import { Container } from './Tree_styled'
-import TreeNode from './TreeNode'
-import { ITreeNode as Node, TreeClickHandler, TreeIconGetter } from '../'
+import * as React from 'react';
+import { Container } from './Tree_styled';
+import TreeNode from './TreeNode';
+import { ITreeNode as Node, TreeClickHandler, TreeIconGetter } from '../';
 
 export interface ITreeProps<NodeData> {
     root: Node<NodeData>
@@ -21,7 +21,7 @@ export default class Tree<NodeData> extends React.Component<ITreeProps<NodeData>
             openedIds,
             onClick,
             getIcon
-        } = this.props
+        } = this.props;
 
         return (
             <Container>
@@ -33,6 +33,6 @@ export default class Tree<NodeData> extends React.Component<ITreeProps<NodeData>
                     depth={0}
                 />
             </Container>
-        )
+        );
     }
 }

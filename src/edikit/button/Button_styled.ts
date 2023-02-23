@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export interface IContainerProps {
     hasIcon: boolean
@@ -19,46 +19,46 @@ export const Container = styled.span<IContainerProps>`
     transition: background 200ms;
     justify-content: ${props => (props.hasIcon && props.hasContent ? 'space-between' : 'center')};
     font-size: ${props => {
-        if (props.size === 'large') return '16px'
-        return '13px'
+        if (props.size === 'large') return '16px';
+        return '13px';
     }};
     padding: ${props => {
-        if (props.size === 'large') return '3px 12px'
-        return '2px 11px'
+        if (props.size === 'large') return '3px 12px';
+        return '2px 11px';
     }};
     color: ${props => {
         if (props.variant === 'primary') {
-            return props.theme.colors.overAccent
+            return props.theme.colors.overAccent;
         }
         if (props.variant === 'success') {
-            return props.theme.colors.overSuccess
+            return props.theme.colors.overSuccess;
         }
         if (props.variant === 'warning') {
-            return props.theme.colors.overWarning
+            return props.theme.colors.overWarning;
         }
         if (props.variant === 'danger') {
-            return props.theme.colors.overDanger
+            return props.theme.colors.overDanger;
         }
 
-        return props.theme.colors.text
+        return props.theme.colors.text;
     }};
     background: ${props => {
         if (props.variant === 'primary') {
-            return props.theme.colors.accent
+            return props.theme.colors.accent;
         }
         if (props.variant === 'success') {
-            return props.theme.colors.success
+            return props.theme.colors.success;
         }
         if (props.variant === 'warning') {
-            return props.theme.colors.warning
+            return props.theme.colors.warning;
         }
         if (props.variant === 'danger') {
-            return props.theme.colors.danger
+            return props.theme.colors.danger;
         }
 
-        return props.theme.colors.background
+        return props.theme.colors.background;
     }};
     &:focus {
         outline: 0;
     }
-`
+`;

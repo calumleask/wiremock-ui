@@ -1,11 +1,11 @@
-import * as React from 'react'
-import { withTheme } from 'styled-components'
-import { Server as ServerIcon, PlusCircle } from 'react-feather'
-import {IPaneContent, ITheme} from 'edikit'
-import { Tree, ITreeNode } from './Tree'
-import { IData } from '../../../types'
-import { IServer } from '../../servers'
-import MapingIcon from '../../mappings/components/MappingIcon'
+import * as React from 'react';
+import { withTheme } from 'styled-components';
+import { Server as ServerIcon, PlusCircle } from 'react-feather';
+import {IPaneContent, ITheme} from 'edikit';
+import { Tree, ITreeNode } from './Tree';
+import { IData } from '../../../types';
+import { IServer } from '../../servers';
+import MapingIcon from '../../mappings/components/MappingIcon';
 
 export interface IExplorerProps {
     tree: ITreeNode
@@ -21,36 +21,36 @@ export interface IExplorerState {
 
 class Explorer extends React.Component<IExplorerProps, IExplorerState> {
     constructor(props: IExplorerProps) {
-        super(props)
+        super(props);
 
         this.state = {
             openedIds: ['root'],
-        }
+        };
     }
 
     getTreeNodeIcon = (node: ITreeNode): React.ReactNode => {
-        const { theme } = this.props
+        const { theme } = this.props;
         if (node.type === 'server') {
-            return <ServerIcon size={12} color={theme.colors.accent}/>
+            return <ServerIcon size={12} color={theme.colors.accent}/>;
         }
 
         if (node.type === 'server.create' || node.type === 'mapping.create') {
-            return <PlusCircle size={14} color={theme.colors.accent}/>
+            return <PlusCircle size={14} color={theme.colors.accent}/>;
         }
 
         if (node.type === 'mapping') {
-            return <MapingIcon/>
+            return <MapingIcon/>;
         }
 
-        return
-    }
+        return;
+    };
 
     handleNodeClick = (node: ITreeNode) => {
         const {
             loadServerMappings,
             servers,
             addContentToCurrentPane,
-        } = this.props
+        } = this.props;
 
         if (node.type === 'server.create') {
             addContentToCurrentPane({
@@ -58,18 +58,18 @@ class Explorer extends React.Component<IExplorerProps, IExplorerState> {
                 type: 'server.create',
                 isCurrent: true,
                 isUnique: true,
-            })
+            });
         }
 
         if (node.type === 'mappings' && node.data !== undefined) {
-            const server = servers.find(s => s.name === node.data!.serverName)
+            const server = servers.find(s => s.name === node.data!.serverName);
             if (server !== undefined) {
-                loadServerMappings(server)
+                loadServerMappings(server);
             }
         }
 
         if (node.type === 'mapping' && node.data !== undefined) {
-            const server = servers.find(s => s.name === node.data!.serverName)
+            const server = servers.find(s => s.name === node.data!.serverName);
             if (server !== undefined) {
                 addContentToCurrentPane({
                     id: node.id,
@@ -80,7 +80,7 @@ class Explorer extends React.Component<IExplorerProps, IExplorerState> {
                         serverName: server.name,
                         mappingId: node.data.mappingId,
                     },
-                })
+                });
             }
         }
 
@@ -90,7 +90,7 @@ class Explorer extends React.Component<IExplorerProps, IExplorerState> {
                 type: 'server.create',
                 isCurrent: true,
                 isUnique: true,
-            })
+            });
         }
 
         if (node.type === 'mapping.create' && node.data !== undefined) {
@@ -103,24 +103,24 @@ class Explorer extends React.Component<IExplorerProps, IExplorerState> {
                     serverName: node.data.serverName,
                     creationId: node.data.creationId,
                 },
-            })
+            });
         }
 
-        let openedIds
+        let openedIds;
         if (this.state.openedIds.includes(node.id)) {
-            openedIds = this.state.openedIds.filter(id => id !== node.id)
+            openedIds = this.state.openedIds.filter(id => id !== node.id);
         } else {
-            openedIds = [...this.state.openedIds, node.id]
+            openedIds = [...this.state.openedIds, node.id];
         }
 
         this.setState({
             openedIds
-        })
-    }
+        });
+    };
 
     render() {
-        const { tree } = this.props
-        const { openedIds } = this.state
+        const { tree } = this.props;
+        const { openedIds } = this.state;
 
         return (
             <Tree
@@ -129,8 +129,8 @@ class Explorer extends React.Component<IExplorerProps, IExplorerState> {
                 getIcon={this.getTreeNodeIcon}
                 onClick={this.handleNodeClick}
             />
-        )
+        );
     }
 }
 
-export default withTheme(Explorer)
+export default withTheme(Explorer);

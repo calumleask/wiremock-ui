@@ -1,6 +1,6 @@
-import * as React from 'react'
-import styled, { withTheme } from 'styled-components'
-import { ITheme } from 'edikit'
+import * as React from 'react';
+import styled, { withTheme } from 'styled-components';
+import { ITheme } from 'edikit';
 
 interface IContainerProps {
     withLink: boolean
@@ -18,7 +18,7 @@ const Container = styled.div<IContainerProps>`
     }
     
     ${props => {
-        if (props.withLink === false) return ''
+        if (props.withLink === false) return '';
         return `
             &:before {
                 content: "";
@@ -29,16 +29,16 @@ const Container = styled.div<IContainerProps>`
                 bottom: 0;
                 background: ${props.theme.builder.link.color};
             }
-        `
+        `;
     }}
-`
+`;
 
 const Header = styled.header`
-`
+`;
 
 const Title = styled.div`
     font-weight: 600;
-`
+`;
 
 interface IContentProps {
     withMarker: boolean
@@ -61,7 +61,7 @@ const Content = styled.div<IContentProps>`
         bottom: 0;
         background: ${props => props.markerColor};
     }
-`
+`;
 
 interface IBlockProps {
     withLink?: boolean
@@ -78,7 +78,7 @@ class Block extends React.Component<IBlockProps> {
         withMarker: true,
         markerColor: 'accent',
         withLink: false
-    }
+    };
 
     render() {
         const {
@@ -88,15 +88,15 @@ class Block extends React.Component<IBlockProps> {
             withMarker,
             markerColor: markerColorKey,
             theme,
-        } = this.props
+        } = this.props;
 
         if (title === undefined && children === undefined) {
-            return null
+            return null;
         }
 
-        let markerColor = theme.colors[markerColorKey!]
+        let markerColor = theme.colors[markerColorKey!];
         if (markerColor === undefined) {
-            markerColor = markerColorKey
+            markerColor = markerColorKey;
         }
 
         return (
@@ -115,8 +115,8 @@ class Block extends React.Component<IBlockProps> {
                     </div>
                 </Content>
             </Container>
-        )
+        );
     }
 }
 
-export default withTheme(Block)
+export default withTheme(Block);

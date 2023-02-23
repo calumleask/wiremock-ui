@@ -1,10 +1,10 @@
-import * as React from 'react'
-import { withTheme } from 'styled-components'
-import AceEditor from 'react-ace'
-import { ITheme } from 'edikit'
-import { IMapping } from '../types'
-import { Container, Content } from './Mapping_styled'
-import MappingBar from './MappingBar'
+import * as React from 'react';
+import { withTheme } from 'styled-components';
+import AceEditor from 'react-ace';
+import { ITheme } from 'edikit';
+import { IMapping } from '../types';
+import { Container, Content } from './Mapping_styled';
+import MappingBar from './MappingBar';
 
 interface IMappingJsonEditorProps {
     mapping: IMapping
@@ -28,9 +28,9 @@ class MappingJsonEditor extends React.Component<IMappingJsonEditorProps> {
             setJsonMode,
             deleteMapping,
             theme,
-        } = this.props
+        } = this.props;
 
-        const source = JSON.stringify(mapping, null, '    ')
+        const source = JSON.stringify(mapping, null, '    ');
 
         return (
             <Container>
@@ -64,8 +64,8 @@ class MappingJsonEditor extends React.Component<IMappingJsonEditorProps> {
                     />
                 </Content>
             </Container>
-        )
+        );
     }
 }
 
-export default withTheme(MappingJsonEditor)
+export default withTheme(MappingJsonEditor);

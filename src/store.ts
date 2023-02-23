@@ -1,5 +1,5 @@
-import { combineReducers } from 'redux'
-import { combineEpics } from 'redux-observable'
+import { combineReducers } from 'redux';
+import { combineEpics } from 'redux-observable';
 import {
     panesReducer,
     IPanesState,
@@ -7,16 +7,16 @@ import {
     notificationsEpic,
     INotificationsState,
     NotificationsAction,
-} from 'edikit'
-import { coreReducer, CoreAction, ICoreState, coreEpic } from './modules/core'
-import { mappingsReducer, IMappingsState, MappingsAction, mappingsEpic } from './modules/mappings'
-import { serversReducer, IServersState, ServersAction, serversEpic } from './modules/servers'
-import { settingsReducer, ISettingsState, SettingsAction } from './modules/settings'
-import { IData } from './types'
+} from 'edikit';
+import { coreReducer, CoreAction, ICoreState, coreEpic } from './modules/core';
+import { mappingsReducer, IMappingsState, MappingsAction, mappingsEpic } from './modules/mappings';
+import { serversReducer, IServersState, ServersAction, serversEpic } from './modules/servers';
+import { settingsReducer, ISettingsState, SettingsAction } from './modules/settings';
+import { IData } from './types';
 
 export interface IAction {
     type: string
-    payload?: {}
+    payload?: Record<string, any>
 }
 
 export type RootAction =
@@ -31,7 +31,7 @@ export const rootEpic = combineEpics(
     coreEpic,
     serversEpic,
     mappingsEpic
-)
+);
 
 export interface IApplicationState {
     notifications: INotificationsState
@@ -49,4 +49,4 @@ export const rootReducer = combineReducers<IApplicationState>({
     settings: settingsReducer,
     servers: serversReducer,
     mappings: mappingsReducer,
-})
+});

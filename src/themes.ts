@@ -3,12 +3,12 @@ import {
     blackTheme,
     solarizedDarkTheme,
     whiteTheme,
-} from 'edikit'
+} from 'edikit';
 
 const themes: { [name: string]: ITheme } = {
     black: blackTheme,
     'solarized dark': solarizedDarkTheme,
     white: whiteTheme,
-}
+};
 
-export default themes
+export default themes;

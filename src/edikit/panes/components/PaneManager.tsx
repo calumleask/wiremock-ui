@@ -1,12 +1,12 @@
-import * as React from 'react'
+import * as React from 'react';
 import {
     IPane,
     IPaneContent,
     IContentType,
     PaneSplitAxis
-} from '../types'
-import Pane from './Pane'
-import { Container } from './PaneManager_styled'
+} from '../types';
+import Pane from './Pane';
+import { Container } from './PaneManager_styled';
 
 export interface IPaneManagerProps<Data> {
     namespace: string
@@ -36,7 +36,7 @@ export interface IPaneManagerProps<Data> {
 
 export default class PaneManager<Data> extends React.Component<IPaneManagerProps<Data>> {
     componentDidMount() {
-        this.props.init()
+        this.props.init();
     }
 
     render() {
@@ -48,9 +48,9 @@ export default class PaneManager<Data> extends React.Component<IPaneManagerProps
             setPaneCurrentContent,
             removePaneContent,
             splitPane,
-        } = this.props
+        } = this.props;
 
-        if (root === undefined) return null
+        if (root === undefined) return null;
 
         return (
             <Container>
@@ -64,6 +64,6 @@ export default class PaneManager<Data> extends React.Component<IPaneManagerProps
                     splitPane={splitPane}
                 />
             </Container>
-        )
+        );
     }
 }

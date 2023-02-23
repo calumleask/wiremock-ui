@@ -1,16 +1,16 @@
-import * as React from 'react'
-import SplitPane from 'react-split-pane'
-import { ThemeProvider } from 'styled-components'
-import { createPaneManager, IPaneContent, NotificationsContainer } from 'edikit'
-import themes from '../../../themes'
-import { ISettings, settingsContentTypes } from '../../settings'
-import { serversContentTypes } from '../../servers'
-import { mappingsContentTypes } from '../../mappings'
-import ExplorerContainer from '../containers/ExplorerContainer'
-import AppBar from './AppBar'
-import { Container, Inner } from './App_styled'
-import { IApplicationState } from '../../../store'
-import { IData } from '../../../types'
+import * as React from 'react';
+import SplitPane from 'react-split-pane';
+import { ThemeProvider } from 'styled-components';
+import { createPaneManager, IPaneContent, NotificationsContainer } from 'edikit';
+import themes from '../../../themes';
+import { ISettings, settingsContentTypes } from '../../settings';
+import { serversContentTypes } from '../../servers';
+import { mappingsContentTypes } from '../../mappings';
+import ExplorerContainer from '../containers/ExplorerContainer';
+import AppBar from './AppBar';
+import { Container, Inner } from './App_styled';
+import { IApplicationState } from '../../../store';
+import { IData } from '../../../types';
 
 const PaneManager = createPaneManager<IApplicationState, IData>({
     namespace: 'default',
@@ -19,7 +19,7 @@ const PaneManager = createPaneManager<IApplicationState, IData>({
         ...serversContentTypes,
         ...mappingsContentTypes,
     ],
-})
+});
 
 export interface IAppProps {
     loadState: () => void
@@ -30,7 +30,7 @@ export interface IAppProps {
 
 export default class App extends React.Component<IAppProps> {
     componentDidMount() {
-        this.props.loadState()
+        this.props.loadState();
     }
 
     render() {
@@ -38,9 +38,9 @@ export default class App extends React.Component<IAppProps> {
             hasBeenInitialized,
             settings,
             addContentToCurrentPane,
-        } = this.props
+        } = this.props;
 
-        if (!hasBeenInitialized) return null
+        if (!hasBeenInitialized) return null;
 
         return (
             <ThemeProvider theme={themes[settings.theme]}>
@@ -59,6 +59,6 @@ export default class App extends React.Component<IAppProps> {
                     <NotificationsContainer/>
                 </Container>
             </ThemeProvider>
-        )
+        );
     }
 }

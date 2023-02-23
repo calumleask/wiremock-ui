@@ -1,8 +1,8 @@
-import * as React from 'react'
-import { Trash2, PlusCircle } from 'react-feather'
-import { FieldArray, FormikErrors, FormikTouched, getIn } from 'formik'
-import { Button, Input } from 'edikit'
-import { IMappingFormValues } from '../../types'
+import * as React from 'react';
+import { Trash2, PlusCircle } from 'react-feather';
+import { FieldArray, FormikErrors, FormikTouched, getIn } from 'formik';
+import { Button, Input } from 'edikit';
+import { IMappingFormValues } from '../../types';
 
 interface IResponseBaseProps {
     values: IMappingFormValues
@@ -22,7 +22,7 @@ export default class ResponseBase extends React.Component<IResponseBaseProps> {
             onChange,
             onBlur,
             sync,
-        } = this.props
+        } = this.props;
 
         return (
             <FieldArray
@@ -40,8 +40,8 @@ export default class ResponseBase extends React.Component<IResponseBaseProps> {
                                     gridColumnEnd: 3,
                                 }}
                                 onClick={() => {
-                                    helpers.push({ key: '', value: '' })
-                                    sync()
+                                    helpers.push({ key: '', value: '' });
+                                    sync();
                                 }}
                             >
                                 Header
@@ -92,8 +92,8 @@ export default class ResponseBase extends React.Component<IResponseBaseProps> {
                                     <div>
                                         <Button
                                             onClick={() => {
-                                                helpers.remove(index)
-                                                sync()
+                                                helpers.remove(index);
+                                                sync();
                                             }}
                                             variant="danger"
                                             icon={<Trash2 size={16}/>}
@@ -115,9 +115,9 @@ export default class ResponseBase extends React.Component<IResponseBaseProps> {
                                 </React.Fragment>
                             ))}
                         </React.Fragment>
-                    )
+                    );
                 }}
             />
-        )
+        );
     }
 }

@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Grid = styled.div`
     margin: 5px 0;
@@ -7,7 +7,7 @@ export const Grid = styled.div`
     grid-column-gap: 12px;
     grid-row-gap: 14px;
     align-items: center;
-`
+`;
 
 
 

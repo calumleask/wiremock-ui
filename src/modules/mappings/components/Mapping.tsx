@@ -1,9 +1,9 @@
-import * as React from 'react'
-import { IServer } from '../../servers'
-import { IMapping } from '../types'
-import MappingJsonEditor from './MappingJsonEditor'
-import MappingBuilder from './MappingBuilder'
-import { Wrapper, Overlay } from './Mapping_styled'
+import * as React from 'react';
+import { IServer } from '../../servers';
+import { IMapping } from '../types';
+import MappingJsonEditor from './MappingJsonEditor';
+import MappingBuilder from './MappingBuilder';
+import { Wrapper, Overlay } from './Mapping_styled';
 
 interface IMappingProps {
     serverName:  string
@@ -24,30 +24,30 @@ interface IMappingState {
 
 export default class Mapping extends React.Component<IMappingProps, IMappingState> {
     constructor(props: IMappingProps) {
-        super(props)
+        super(props);
 
         this.state = {
             mode: 'builder'
-        }
+        };
     }
 
     componentDidMount() {
-        this.props.initWorkingCopy()
+        this.props.initWorkingCopy();
     }
 
     componentDidUpdate(prevProps: IMappingProps) {
         if (this.props.mappingId !== prevProps.mappingId) {
-            this.props.initWorkingCopy()
+            this.props.initWorkingCopy();
         }
     }
 
     setBuilderMode = () => {
-        this.setState({ mode: 'builder' })
-    }
+        this.setState({ mode: 'builder' });
+    };
 
     setJsonMode = () => {
-        this.setState({ mode: 'json' })
-    }
+        this.setState({ mode: 'json' });
+    };
 
     render() {
         const {
@@ -56,10 +56,10 @@ export default class Mapping extends React.Component<IMappingProps, IMappingStat
             syncWorkingCopy,
             updateMapping,
             deleteMapping,
-        } = this.props
-        const { mode } = this.state
+        } = this.props;
+        const { mode } = this.state;
 
-        if (mapping === undefined) return null
+        if (mapping === undefined) return null;
 
         return (
             <Wrapper>
@@ -89,6 +89,6 @@ export default class Mapping extends React.Component<IMappingProps, IMappingStat
                 )}
                 {isLoading && <Overlay/>}
             </Wrapper>
-        )
+        );
     }
 }

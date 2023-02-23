@@ -1,8 +1,8 @@
-import * as React from 'react'
-import { IMapping } from '../types'
-import MappingJsonEditor from './MappingJsonEditor'
-import MappingBuilder from './MappingBuilder'
-import { Wrapper, Overlay } from './Mapping_styled'
+import * as React from 'react';
+import { IMapping } from '../types';
+import MappingJsonEditor from './MappingJsonEditor';
+import MappingBuilder from './MappingBuilder';
+import { Wrapper, Overlay } from './Mapping_styled';
 
 interface ICreateMappingProps {
     serverName: string
@@ -20,36 +20,36 @@ interface ICreateMappingState {
 
 export default class CreateMapping extends React.Component<ICreateMappingProps, ICreateMappingState> {
     constructor(props: ICreateMappingProps) {
-        super(props)
+        super(props);
 
         this.state = {
             mode: 'builder',
-        }
+        };
     }
 
     componentDidMount() {
-        this.props.init()
+        this.props.init();
     }
 
     setBuilderMode = () => {
-        this.setState({ mode: 'builder' })
-    }
+        this.setState({ mode: 'builder' });
+    };
 
     setJsonMode = () => {
-        this.setState({ mode: 'json' })
-    }
+        this.setState({ mode: 'json' });
+    };
 
     render() {
         const {
-            creationId,
+            // creationId,
             mapping,
             isCreating,
             save,
-        } = this.props
+        } = this.props;
 
-        if (mapping === undefined) return null
+        if (mapping === undefined) return null;
 
-        const { mode } = this.state
+        const { mode } = this.state;
 
         return (
             <Wrapper>
@@ -75,6 +75,6 @@ export default class CreateMapping extends React.Component<ICreateMappingProps, 
                 )}
                 {isCreating && <Overlay/>}
             </Wrapper>
-        )
+        );
     }
 }
