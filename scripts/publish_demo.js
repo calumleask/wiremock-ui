@@ -1,10 +1,10 @@
-const ghpages = require('gh-pages')
+const ghpages = require('gh-pages');
 
-ghpages.publish('build', (err) => {
-    if (err !== undefined) {
-        console.error(err)
-        process.exit(1)
-    }
+ghpages.publish('build', err => {
+  if (err !== undefined) {
+    console.error(err);
+    process.exit(1);
+  }
 
-    console.log('demo successfully published!')
-})
+  console.log('demo successfully published!');
+});

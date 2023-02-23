@@ -1,7 +1,11 @@
 import * as React from 'react';
 import SplitPane from 'react-split-pane';
 import { ThemeProvider } from 'styled-components';
-import { createPaneManager, IPaneContent, NotificationsContainer } from 'edikit';
+import {
+  createPaneManager,
+  IPaneContent,
+  NotificationsContainer,
+} from 'edikit';
 import themes from '../../../themes';
 import { ISettings, settingsContentTypes } from '../../settings';
 import { serversContentTypes } from '../../servers';
@@ -13,52 +17,47 @@ import { IApplicationState } from '../../../store';
 import { IData } from '../../../types';
 
 const PaneManager = createPaneManager<IApplicationState, IData>({
-    namespace: 'default',
-    contentTypes: [
-        ...settingsContentTypes,
-        ...serversContentTypes,
-        ...mappingsContentTypes,
-    ],
+  namespace: 'default',
+  contentTypes: [
+    ...settingsContentTypes,
+    ...serversContentTypes,
+    ...mappingsContentTypes,
+  ],
 });
 
 export interface IAppProps {
-    loadState: () => void
-    hasBeenInitialized: boolean
-    settings: ISettings,
-    addContentToCurrentPane(content: IPaneContent<IData>): void
+  loadState: () => void;
+  hasBeenInitialized: boolean;
+  settings: ISettings;
+  addContentToCurrentPane(content: IPaneContent<IData>): void;
 }
 
 export default class App extends React.Component<IAppProps> {
-    componentDidMount() {
-        this.props.loadState();
-    }
+  componentDidMount() {
+    this.props.loadState();
+  }
 
-    render() {
-        const {
-            hasBeenInitialized,
-            settings,
-            addContentToCurrentPane,
-        } = this.props;
+  render() {
+    const { hasBeenInitialized, settings, addContentToCurrentPane } =
+      this.props;
 
-        if (!hasBeenInitialized) return null;
+    if (!hasBeenInitialized) return null;
 
-        return (
-            <ThemeProvider theme={themes[settings.theme]}>
-                <Container>
-                    <AppBar
-                        addContentToCurrentPane={addContentToCurrentPane}
-                    />
-                    <Inner>
-                        <SplitPane split="vertical" defaultSize={260}>
-                            <ExplorerContainer
-                                addContentToCurrentPane={addContentToCurrentPane}
-                            />
-                            <PaneManager/>
-                        </SplitPane>
-                    </Inner>
-                    <NotificationsContainer/>
-                </Container>
-            </ThemeProvider>
-        );
-    }
+    return (
+      <ThemeProvider theme={themes[settings.theme]}>
+        <Container>
+          <AppBar addContentToCurrentPane={addContentToCurrentPane} />
+          <Inner>
+            <SplitPane split="vertical" defaultSize={260}>
+              <ExplorerContainer
+                addContentToCurrentPane={addContentToCurrentPane}
+              />
+              <PaneManager />
+            </SplitPane>
+          </Inner>
+          <NotificationsContainer />
+        </Container>
+      </ThemeProvider>
+    );
+  }
 }

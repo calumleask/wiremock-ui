@@ -5,19 +5,18 @@ import { IApplicationState } from '../../../store';
 import Settings from '../components/Settings';
 import { ISettings } from '../types';
 
-const mapStateToProps = ({ settings: { settings } }: IApplicationState): {
-    settings: ISettings
+const mapStateToProps = ({
+  settings: { settings },
+}: IApplicationState): {
+  settings: ISettings;
 } => ({
-    settings
+  settings,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-    setSetting: (key: string, value: any) => {
-        return dispatch(setSetting(key, value));
-    }
+  setSetting: (key: string, value: any) => {
+    return dispatch(setSetting(key, value));
+  },
 });
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Settings);
+export default connect(mapStateToProps, mapDispatchToProps)(Settings);

@@ -6,14 +6,17 @@ import { IApplicationState } from '../../../store';
 import { ServersAction, ICreateServerAction } from './actions';
 import { ServersActionTypes } from './types';
 
-export const createServerEpic: Epic<ServersAction, any, IApplicationState> = action$ =>
-    action$.ofType(ServersActionTypes.CREATE_SERVER)
-        .pipe(
-            mergeMap((_action: ICreateServerAction) => of(
-                removeContentFromAllPanesAction('default', 'server.create')
-            ))
-        );
+export const createServerEpic: Epic<
+  ServersAction,
+  any,
+  IApplicationState
+> = action$ =>
+  action$
+    .ofType(ServersActionTypes.CREATE_SERVER)
+    .pipe(
+      mergeMap((_action: ICreateServerAction) =>
+        of(removeContentFromAllPanesAction('default', 'server.create')),
+      ),
+    );
 
-export const serversEpic = combineEpics(
-    createServerEpic
-);
+export const serversEpic = combineEpics(createServerEpic);

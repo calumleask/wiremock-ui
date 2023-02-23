@@ -5,19 +5,19 @@ import { IApplicationState } from './store';
 import AppContainer from './modules/core/containers/AppContainer';
 
 interface IRootProps {
-    store: Store<IApplicationState>
+  store: Store<IApplicationState>;
 }
 
 class Root extends React.Component<IRootProps> {
-    render() {
-        const { store } = this.props;
+  render() {
+    const { store } = this.props;
 
-        return (
-            <Provider store={store}>
-                <AppContainer/>
-            </Provider>
-        );
-    }
+    return (
+      <Provider store={store}>
+        <AppContainer />
+      </Provider>
+    );
+  }
 }
 
 export default Root;

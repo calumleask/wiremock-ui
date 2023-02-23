@@ -16,7 +16,7 @@
     "@typescript-eslint/no-unused-vars": [
       "error",
       { "argsIgnorePattern": "^_" }
-    ],
+    ]
   },
   "env": {
     "browser": true,
