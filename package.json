@@ -6,7 +6,6 @@
     "@types/inline-style-prefixer": "^3.0.1",
     "@types/lodash": "^4.14.191",
     "@types/react-redux": "^7.1.25",
-    "@types/yup": "^0.24.9",
     "allotment": "^1.18.1",
     "brace": "^0.11.1",
     "formik": "^2.2.9",
@@ -21,7 +20,7 @@
     "rxjs": "^7.8.0",
     "styled-components": "^5.3.6",
     "typesafe-actions": "^2.2.0",
-    "yup": "^0.26.10"
+    "yup": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.21.0",
