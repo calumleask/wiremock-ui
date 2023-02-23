@@ -37,7 +37,6 @@
     "babel-plugin-import": "^1.13.6",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^11.0.0",
-    "gh-pages": "^1.2.0",
     "redux-devtools-extension": "^2.13.9",
     "terser-webpack-plugin": "^5.3.6",
     "ts-jest": "^29.0.5",
@@ -52,8 +51,6 @@
     "start": "webpack server --open --hot --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "test": "react-scripts-ts test --env=jsdom",
-    "lint": "tslint -c tslint.json 'src/**/*.ts'",
-    "demo:publish": "PUBLIC_URL=https://plouc.github.io/wiremock-ui yarn run build && node scripts/publish_demo.js",
-    "demo:pub": "yarn run demo:publish"
+    "lint": "tslint -c tslint.json 'src/**/*.ts'"
   }
 }
