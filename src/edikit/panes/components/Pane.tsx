@@ -1,5 +1,5 @@
 import * as React from 'react';
-import SplitPane from 'react-split-pane';
+import { Allotment } from 'allotment';
 import PaneHeader from './PaneHeader';
 import EmptyPane from './EmptyPane';
 import { Container, Content } from './Pane_styled';
@@ -53,29 +53,31 @@ export default class Pane<Data> extends React.Component<IPaneProps<Data>> {
 
     if (pane.split === true) {
       return (
-        <SplitPane split={pane.splitAxis} defaultSize="50%">
-          {pane.children.map(childPaneId => {
-            const childPane = panes.find(p => p.id === childPaneId);
-            if (childPane === undefined) {
-              throw new Error(
-                `no pane found for id: ${childPaneId}\n${JSON.stringify(pane)}`,
-              );
-            }
+        <Allotment vertical={pane.splitAxis === PaneSplitAxis.Horizontal}>
+          <Allotment.Pane preferredSize="50%">
+            {pane.children.map(childPaneId => {
+              const childPane = panes.find(p => p.id === childPaneId);
+              if (childPane === undefined) {
+                throw new Error(
+                  `no pane found for id: ${childPaneId}\n${JSON.stringify(pane)}`,
+                );
+              }
 
-            return (
-              <Pane
-                key={childPaneId}
-                pane={childPane}
-                panes={panes}
-                contentTypes={contentTypes}
-                setCurrentPane={setCurrentPane}
-                setPaneCurrentContent={setPaneCurrentContent}
-                removePaneContent={removePaneContent}
-                splitPane={splitPane}
-              />
-            );
-          })}
-        </SplitPane>
+              return (
+                <Pane
+                  key={childPaneId}
+                  pane={childPane}
+                  panes={panes}
+                  contentTypes={contentTypes}
+                  setCurrentPane={setCurrentPane}
+                  setPaneCurrentContent={setPaneCurrentContent}
+                  removePaneContent={removePaneContent}
+                  splitPane={splitPane}
+                />
+              );
+            })}
+          </Allotment.Pane>
+        </Allotment>
       );
     }
 

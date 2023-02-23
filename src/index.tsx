@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { createRoot } from 'react-dom/client';
-import './globalStyles';
 import './editorConfig';
 import Root from './Root';
 

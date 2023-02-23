@@ -1,5 +1,5 @@
 import * as React from 'react';
-import SplitPane from 'react-split-pane';
+import { Allotment } from 'allotment';
 import { ThemeProvider } from 'styled-components';
 import {
   createPaneManager,
@@ -48,12 +48,16 @@ export default class App extends React.Component<IAppProps> {
         <Container>
           <AppBar addContentToCurrentPane={addContentToCurrentPane} />
           <Inner>
-            <SplitPane split="vertical" defaultSize={260}>
-              <ExplorerContainer
-                addContentToCurrentPane={addContentToCurrentPane}
-              />
-              <PaneManager />
-            </SplitPane>
+            <Allotment>
+              <Allotment.Pane preferredSize={260}>
+                <ExplorerContainer
+                  addContentToCurrentPane={addContentToCurrentPane}
+                />
+              </Allotment.Pane>
+              <Allotment.Pane>
+                <PaneManager />
+              </Allotment.Pane>
+            </Allotment>
           </Inner>
           <NotificationsContainer />
         </Container>
