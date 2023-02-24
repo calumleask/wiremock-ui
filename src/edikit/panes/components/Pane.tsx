@@ -59,7 +59,9 @@ export default class Pane<Data> extends React.Component<IPaneProps<Data>> {
               const childPane = panes.find(p => p.id === childPaneId);
               if (childPane === undefined) {
                 throw new Error(
-                  `no pane found for id: ${childPaneId}\n${JSON.stringify(pane)}`,
+                  `no pane found for id: ${childPaneId}\n${JSON.stringify(
+                    pane,
+                  )}`,
                 );
               }
 

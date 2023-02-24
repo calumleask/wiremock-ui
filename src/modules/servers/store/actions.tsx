@@ -20,21 +20,26 @@ export interface ICreateServerAction {
   };
 }
 
-export const createServer = (server: Pick<IServer, 'name' | 'url' | 'port'>) =>
+export const createServer = (
+  server: Pick<IServer, 'name' | 'url' | 'port'>,
+  notify = true,
+) =>
   action(
     ServersActionTypes.CREATE_SERVER,
     { server },
-    {
-      notification: {
-        type: 'success',
-        content: (
-          <div>
-            server <strong>{server.name}</strong> successfully created
-          </div>
-        ),
-        ttl: 3000,
-      },
-    },
+    notify
+      ? {
+          notification: {
+            type: 'success',
+            content: (
+              <div>
+                server <strong>{server.name}</strong> successfully created
+              </div>
+            ),
+            ttl: 3000,
+          },
+        }
+      : undefined,
   );
 
 export interface ISelectServerAction {
