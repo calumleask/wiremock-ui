@@ -15,7 +15,7 @@ const mapStateToProps = ({
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
   setSetting: (key: string, value: any) => {
-    return dispatch(setSetting(key, value));
+    return dispatch(setSetting()(key, value));
   },
 });
 

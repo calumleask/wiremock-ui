@@ -22,14 +22,14 @@ export interface ISetSettingAction extends IAction {
 
 export const setSetting = createAction(
   SettingsActionTypes.SET_SETTING,
-  resolve => (key: string, value: any) => {
+  (key: string, value: any) => {
     if (isString(value)) {
       localStorage.setItem(key, value);
     } else if (isBoolean(value)) {
       localStorage.setItem(key, value ? 'true' : 'false');
     }
 
-    return resolve({ key, value });
+    return { key, value };
   },
 );
 

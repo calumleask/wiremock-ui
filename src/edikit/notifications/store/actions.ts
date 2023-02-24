@@ -18,14 +18,13 @@ export interface ITriggerNotificationAction {
 
 export const triggerNotification = createAction(
   NotificationsActionTypes.TRIGGER_NOTIFICATION,
-  resolve => (notification: ITriggerNotification) =>
-    resolve({
-      notification: {
-        id: uuid(),
-        type: 'default',
-        ...notification,
-      },
-    }),
+  (notification: ITriggerNotification) => ({
+    notification: {
+      id: uuid(),
+      type: 'default',
+      ...notification,
+    },
+  }),
 );
 
 export interface ICloseNotificationAction {

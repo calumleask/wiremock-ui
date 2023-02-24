@@ -12,7 +12,7 @@ export const notificationsMiddleware =
   (store: Store) => (next: any) => (action: IAction) => {
     const result = next(action);
     if (action.meta !== undefined && action.meta.notification !== undefined) {
-      store.dispatch(triggerNotification(action.meta.notification));
+      store.dispatch(triggerNotification()(action.meta.notification));
     }
 
     return result;
