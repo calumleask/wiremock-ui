@@ -23,37 +23,36 @@ export interface IButtonProps {
   onClick?: any;
 }
 
-export default class Button extends React.Component<IButtonProps> {
-  static defaultProps = {
-    variant: 'default',
-    size: 'normal',
-    iconPlacement: 'prepend',
-  };
-
-  render() {
-    const { label, children, variant, size, icon, iconPlacement, ...rest } =
-      this.props;
-
-    let content = null;
-    if (children) {
-      content = children;
-    } else if (label) {
-      content = label;
-    }
-
-    return (
-      <Container
-        {...rest}
-        variant={variant}
-        size={size}
-        hasContent={content !== null}
-        hasIcon={icon !== null}
-        tabIndex={0}
-      >
-        {icon && iconPlacement === 'prepend' && icon}
-        {label || children}
-        {icon && iconPlacement === 'append' && icon}
-      </Container>
-    );
+const Button: React.FC<IButtonProps> = ({
+  variant = 'default',
+  size = 'normal',
+  iconPlacement = 'prepend',
+  label,
+  children,
+  icon,
+  ...rest
+}) => {
+  let content = null;
+  if (children) {
+    content = children;
+  } else if (label) {
+    content = label;
   }
-}
+
+  return (
+    <Container
+      {...rest}
+      variant={variant}
+      size={size}
+      hasContent={content !== null}
+      hasIcon={icon !== null}
+      tabIndex={0}
+    >
+      {icon && iconPlacement === 'prepend' && icon}
+      {label || children}
+      {icon && iconPlacement === 'append' && icon}
+    </Container>
+  );
+};
+
+export default Button;
