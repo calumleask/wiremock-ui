@@ -1,4 +1,4 @@
-import { Dispatch } from 'redux';
+import { Dispatch } from '@reduxjs/toolkit';
 import { connect } from 'react-redux';
 import { panesCurrentContentsSelector, uuid } from 'edikit';
 import { ITreeNode } from '../components/Tree';

@@ -1,4 +1,4 @@
-import { Dispatch } from 'redux';
+import { Dispatch } from '@reduxjs/toolkit';
 import { connect } from 'react-redux';
 import { IApplicationState } from '../../../store';
 import { IServer } from '../../servers';

@@ -1,4 +1,4 @@
-import { Dispatch } from 'redux';
+import { Dispatch } from '@reduxjs/toolkit';
 import { connect } from 'react-redux';
 import PaneManager from './components/PaneManager';
 import { actionsFactory, IPanesState } from './store';

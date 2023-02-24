@@ -1,4 +1,4 @@
-import { Store } from 'redux';
+import { Store } from '@reduxjs/toolkit';
 import { ITriggerNotification, triggerNotification } from './actions';
 
 interface IAction {
