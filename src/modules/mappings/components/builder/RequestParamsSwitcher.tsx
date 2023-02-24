@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { Button } from 'edikit';
-import { IMappingFormValues } from '../../types';
+import { IMappingFormValues, IMappingRequestParamType } from '../../types';
 
 interface IRequestParamsSwitcherProps {
-  paramsType: 'query' | 'headers' | 'cookies' | 'body';
+  paramsType: IMappingRequestParamType;
   values: IMappingFormValues;
-  onChange(paramsType: 'query' | 'headers' | 'cookies' | 'body'): void;
+  onChange(paramsType: IMappingRequestParamType): void;
 }
 
 const RequestParamsSwitcher: React.FC<IRequestParamsSwitcherProps> = ({

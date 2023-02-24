@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { FormikErrors, FormikTouched } from 'formik';
 import { Block } from 'edikit';
-import { IMappingFormValues } from '../../types';
+import { IMappingFormValues, IMappingRequestParamType } from '../../types';
 import BuilderSectionLabel from './BuilderSectionLabel';
 import RequestUrl from './RequestUrl';
 import RequestUrlDetails from './RequestUrlDetails';
@@ -15,10 +15,10 @@ interface IBuilderRequestProps {
   values: IMappingFormValues;
   errors: FormikErrors<IMappingFormValues>;
   touched: FormikTouched<IMappingFormValues>;
-  paramsType: 'query' | 'headers' | 'cookies' | 'body';
+  paramsType: IMappingRequestParamType;
   onChange(e: React.ChangeEvent<any>): void;
   onBlur(e: any): void;
-  updateParamsType(paramsType: 'query' | 'headers' | 'cookies' | 'body'): void;
+  updateParamsType(paramsType: IMappingRequestParamType): void;
 }
 
 const BuilderRequest: React.FC<IBuilderRequestProps> = ({
