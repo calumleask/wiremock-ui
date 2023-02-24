@@ -15,10 +15,10 @@ export type ButtonIconPlacement = 'prepend' | 'append';
 export interface IButtonProps {
   label?: React.ReactNode;
   children?: React.ReactNode;
-  variant: ButtonVariant;
-  size: ButtonSize;
+  variant?: ButtonVariant;
+  size?: ButtonSize;
   icon?: React.ReactNode;
-  iconPlacement: ButtonIconPlacement;
+  iconPlacement?: ButtonIconPlacement;
   style?: React.CSSProperties;
   onClick?: any;
 }
