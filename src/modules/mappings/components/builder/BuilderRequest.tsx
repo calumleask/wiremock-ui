@@ -21,86 +21,84 @@ interface IBuilderRequestProps {
   updateParamsType(paramsType: 'query' | 'headers' | 'cookies' | 'body'): void;
 }
 
-export default class BuilderRequest extends React.Component<IBuilderRequestProps> {
-  render() {
-    const {
-      isOpened,
-      onToggle,
-      values,
-      errors,
-      touched,
-      onChange,
-      onBlur,
-      paramsType,
-      updateParamsType,
-    } = this.props;
+const BuilderRequest: React.FC<IBuilderRequestProps> = ({
+  isOpened,
+  onToggle,
+  values,
+  errors,
+  touched,
+  onChange,
+  onBlur,
+  paramsType,
+  updateParamsType,
+}) => {
+  return (
+    <React.Fragment>
+      <BuilderSectionLabel
+        label="Request"
+        isOpened={isOpened}
+        onToggle={onToggle}
+      />
+      {isOpened && (
+        <Block withLink={true}>
+          <Grid>
+            <RequestUrl
+              values={values}
+              errors={errors}
+              touched={touched}
+              onChange={onChange}
+              onBlur={onBlur}
+            />
+            <RequestUrlDetails
+              values={values}
+              errors={errors}
+              touched={touched}
+              onChange={onChange}
+              onBlur={onBlur}
+            />
+            <RequestParamsSwitcher
+              paramsType={paramsType}
+              values={values}
+              onChange={updateParamsType}
+            />
+            {paramsType === 'query' && (
+              <RequestParams
+                type="queryParameters"
+                label="query parameter"
+                values={values}
+                errors={errors}
+                touched={touched}
+                onChange={onChange}
+                onBlur={onBlur}
+              />
+            )}
+            {paramsType === 'headers' && (
+              <RequestParams
+                type="requestHeaders"
+                label="header"
+                values={values}
+                errors={errors}
+                touched={touched}
+                onChange={onChange}
+                onBlur={onBlur}
+              />
+            )}
+            {paramsType === 'cookies' && (
+              <RequestParams
+                type="requestCookies"
+                label="cookie"
+                values={values}
+                errors={errors}
+                touched={touched}
+                onChange={onChange}
+                onBlur={onBlur}
+              />
+            )}
+          </Grid>
+        </Block>
+      )}
+    </React.Fragment>
+  );
+};
 
-    return (
-      <React.Fragment>
-        <BuilderSectionLabel
-          label="Request"
-          isOpened={isOpened}
-          onToggle={onToggle}
-        />
-        {isOpened && (
-          <Block withLink={true}>
-            <Grid>
-              <RequestUrl
-                values={values}
-                errors={errors}
-                touched={touched}
-                onChange={onChange}
-                onBlur={onBlur}
-              />
-              <RequestUrlDetails
-                values={values}
-                errors={errors}
-                touched={touched}
-                onChange={onChange}
-                onBlur={onBlur}
-              />
-              <RequestParamsSwitcher
-                paramsType={paramsType}
-                values={values}
-                onChange={updateParamsType}
-              />
-              {paramsType === 'query' && (
-                <RequestParams
-                  type="queryParameters"
-                  label="query parameter"
-                  values={values}
-                  errors={errors}
-                  touched={touched}
-                  onChange={onChange}
-                  onBlur={onBlur}
-                />
-              )}
-              {paramsType === 'headers' && (
-                <RequestParams
-                  type="requestHeaders"
-                  label="header"
-                  values={values}
-                  errors={errors}
-                  touched={touched}
-                  onChange={onChange}
-                  onBlur={onBlur}
-                />
-              )}
-              {paramsType === 'cookies' && (
-                <RequestParams
-                  type="requestCookies"
-                  label="cookie"
-                  values={values}
-                  errors={errors}
-                  touched={touched}
-                  onChange={onChange}
-                  onBlur={onBlur}
-                />
-              )}
-            </Grid>
-          </Block>
-        )}
-      </React.Fragment>
-    );
-  }
-}
+export default BuilderRequest;
